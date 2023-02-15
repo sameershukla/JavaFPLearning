@@ -1,4 +1,4 @@
-package src.main.java.com.example.fp.functions.tuple;
+package com.example.fp.functions.tuple;
 
 import java.util.Objects;
 

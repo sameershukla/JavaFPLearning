@@ -1,6 +1,6 @@
-package src.main.java.com.example.fp.functions.chaining;
+package com.example.fp.functions.chaining;
 
-import src.main.java.com.example.fp.functions.tuple.Tuple;
+import com.example.fp.functions.tuple.Tuple;
 
 public class TriFunctionChaining {
 

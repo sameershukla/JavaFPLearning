@@ -1,4 +1,4 @@
-package src.main.java.com.example.fp.functions.chaining;
+package com.example.fp.functions.chaining;
 
 import java.io.*;
 import java.util.function.Consumer;
