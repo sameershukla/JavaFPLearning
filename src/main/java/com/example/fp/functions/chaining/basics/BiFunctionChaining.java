@@ -1,4 +1,4 @@
-package com.example.fp.functions.chaining;
+package com.example.fp.functions.chaining.basics;
 
 import com.example.fp.functions.tuple.Tuple;
 

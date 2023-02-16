@@ -1,6 +1,4 @@
-package com.example.fp.functions.chaining;
-
-import java.util.function.Function;
+package com.example.fp.functions.chaining.basics;
 
 /**
  * TriFunction is a function that represents method with 3 parameters and a return type

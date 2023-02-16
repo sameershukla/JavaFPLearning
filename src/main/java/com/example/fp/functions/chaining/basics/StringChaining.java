@@ -1,4 +1,4 @@
-package com.example.fp.functions.chaining;
+package com.example.fp.functions.chaining.basics;
 
 import java.util.function.Function;
 
