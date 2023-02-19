@@ -1,4 +1,4 @@
-package com.example.fp.functions.currying;
+package com.example.fp.functional.currying;
 
 import java.util.Arrays;
 import java.util.function.Function;

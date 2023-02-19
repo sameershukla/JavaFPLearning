@@ -1,4 +1,4 @@
-package com.example.fp.functions.functionexplorer;
+package com.example.fp.functional.functionexplorer;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

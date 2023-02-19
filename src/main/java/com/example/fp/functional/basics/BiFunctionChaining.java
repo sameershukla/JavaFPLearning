@@ -1,6 +1,6 @@
-package com.example.fp.functions.chaining.basics;
+package com.example.fp.functional.basics;
 
-import com.example.fp.functions.tuple.Tuple;
+import com.example.fp.functional.tuple.Tuple;
 
 import java.util.function.BiFunction;
 

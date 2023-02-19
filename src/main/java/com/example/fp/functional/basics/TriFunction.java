@@ -1,4 +1,4 @@
-package com.example.fp.functions.chaining.basics;
+package com.example.fp.functional.basics;
 
 /**
  * TriFunction is a function that represents method with 3 parameters and a return type
