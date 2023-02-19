@@ -1,5 +1,6 @@
 package com.example.fp.functional.basics;
 
+import java.util.Objects;
 import java.util.function.Function;
 
 public class StringChaining {
@@ -16,12 +17,15 @@ public class StringChaining {
         return text.toUpperCase();
     }
 
-    public static void main(String[] args) {
+    public static String letterChain(String input){
+        if(input == null)
+            throw new IllegalArgumentException("Input cannot be null");
+
         Function<String, String> pipeline = StringChaining:: addText;
-        String result = pipeline
-                            .andThen(StringChaining:: removeSpecialCharacters)
-                            .andThen(StringChaining:: capitalize)
-                            .apply("Hello");
-        System.out.println(result);
+        return pipeline
+                .andThen(StringChaining:: removeSpecialCharacters)
+                .andThen(StringChaining:: capitalize)
+                .apply(input);
     }
+
 }

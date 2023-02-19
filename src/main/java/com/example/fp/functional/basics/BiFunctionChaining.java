@@ -13,7 +13,7 @@ public class BiFunctionChaining {
      * @return
      */
     private static Tuple<String, String> addText(String a, String b) {
-        return new Tuple<String, String>(a, b);
+        return new Tuple<String, String>(a.trim(), b.trim());
     }
 
     /**
@@ -37,15 +37,17 @@ public class BiFunctionChaining {
     }
 
     /**
-     * Main
-     * @param args
+     * Pipeline
      */
-    public static void main(String[] args) {
+    public static Tuple<String, String> letterChain(String input1, String input2){
+        if(input1 == null || input2 == null)
+            throw new IllegalArgumentException("Input cannot be null");
+
         BiFunction<String, String, Tuple<String, String>> pipeline = BiFunctionChaining::addText;
-        Tuple<String, String> resultTuple = pipeline
+        return pipeline
                 .andThen(t -> removeCharacters(t._1(), t._2()))
                 .andThen(t -> capitalize(t._1(), t._2()))
-                .apply("Java@#$%%%Programming%", "$##Language");
-        System.out.println(resultTuple._1() + " " + resultTuple._2());
+                .apply(input1, input2);
     }
+
 }

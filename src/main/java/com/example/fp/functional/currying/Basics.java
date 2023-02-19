@@ -6,22 +6,20 @@ import java.util.stream.Collectors;
 
 public class Basics {
 
-    private static String split(String a){
-        String[] s = a.split("-");
-        return Arrays.stream(s).collect(Collectors.joining());
+
+    static Function<String, String> addSuffix(String s) {
+        return suffix -> s + suffix;
     }
-
-    private static String capitalize(String b){
-        return b.toUpperCase();
-    }
-
-    private static String replace(String c){
-        return c.replaceAll("A", "E");
-    }
-
-
     public static void main(String[] args) {
         Function<String, Function<String, Function<String, String>>> pipeline = a -> b -> c -> a + b + c;
+        Function<String, String> addPrefix = str -> "Prefix" + str;
+
+        Function<String, Function<String, String>> letterPipeline = letter -> addPrefix.andThen(addSuffix(letter));
+        System.out.println(letterPipeline.apply("Hello").apply("World"));
+
+        //Basic
+        Function<Integer, Function<Integer, Integer>> p = i -> j -> i + j;
+        System.out.println(p.apply(10).apply(20));
 
     }
 }

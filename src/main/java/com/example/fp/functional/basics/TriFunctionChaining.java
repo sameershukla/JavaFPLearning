@@ -15,17 +15,6 @@ public class TriFunctionChaining {
         return new Tuple<>(first, " "+ middle + " " + last);
     }
 
-    /**
-     * remove special characters from the data
-     * @param first
-     * @param middle
-     * @param last
-     * @return
-     */
-    private static Tuple<String, String> removeCharacters(String first, String middle, String last){
-        String lastName = middle.replaceAll("[^\\p{Alpha}]+", " ") + " " + last.replaceAll("[^\\p{Alpha}]+", " ");
-        return new Tuple<>(first.replaceAll("[^\\p{Alpha}]+", " "), " "+ lastName);
-    }
 
     /**
      * Capitalization
@@ -39,12 +28,20 @@ public class TriFunctionChaining {
         return new Tuple<>(first.toUpperCase(), " "+ lastName);
     }
 
-    public static void main(String[] args) {
+
+    /**
+     * Letter Chaining
+     * @param
+     */
+    public static Tuple<String, String> letterChain(String input1, String input2, String input3) {
+        if(input1 == null || input2 == null || input3 == null)
+            throw new IllegalArgumentException("Input cannot be null");
+
         TriFunction<String, String, String, Tuple<String, String>> pipeline = TriFunctionChaining :: concatenate;
-        Tuple<String, String> resultTuple = pipeline
-                                                .andThen(TriFunctionChaining :: removeCharacters)
-                                                .andThen(TriFunctionChaining :: capitalize)
-                                                .apply("Sameer", "K", "Shukla");
-        System.out.println(resultTuple._1() + " " + resultTuple._2());
+        return pipeline
+                .andThen(TriFunctionChaining :: capitalize)
+                .apply(input1, input2, input3);
     }
+
+
 }
