@@ -1,26 +1,30 @@
 # Functional Programming In Java
 
-<img src="https://miro.medium.com/max/1200/1*S5KkDX11wbKa6suvBPBFJA.png" width="400">
+<img src="https://axisapplications.com/wp-content/uploads/2019/02/functionalprogramming_icon-300x300.png" width="300">
+
 
 The Repository is a compendium of Java-based Functional Programming examples aimed at enhancing your comprehension of the concepts and facilitating your eventual implementation of them.
 
 # Package info
 
-1. functional.basics: Contains examples of function chaining, the package has example of Function, BiFunction and user-defined
-   TriFunction chaining.
+##### 1. _functional.basics_: Contains examples of function chaining, the package has example of Function, BiFunction and user-defined TriFunction chaining.
 
-2. Tuple: A tuple is similar to an array, but unlike an array, it can hold elements of different types, and it has a fixed length. Tuples are a convenient way to group together related data that doesn't naturally fit into a class or a case class.
-   The Tuple is a user-defined class.
+##### 2. _functional.tuple_: A tuple is similar to an array, but unlike an array, it can hold elements of different types, and it has a fixed length. Tuples are a convenient way to group together related data that doesn't naturally fit into a class or a case class. The Tuple is a user-defined class.
 
-3. Currying: Contains examples of Currying
+##### _3. functional.currying:_ Contains examples of Currying
 
 # Fundamentals
 
 1. In Java, a lambda expression is a type of anonymous function that can be used to represent a block of code that can be passed as an argument to a method or stored in a variable. When a Java compiler encounters a lambda expression in the source code, it performs several steps to detect and process it:
-   **Parsing**: The Java compiler parses the lambda expression to determine its syntax and identify the variables that are used in the expression.
-   **Type Inference**: The compiler infers the types of the lambda parameters based on the context in which the lambda expression is used.
-   **Creation of a Functional Interface**: A lambda expression is only valid if it can be assigned to a functional interface. A functional interface is an interface with a single abstract method. If the lambda expression matches the signature of the functional interface, the compiler creates an instance of that interface and assigns the lambda expression to it.
-   **Compilation**: Finally, the compiler compiles the lambda expression and generates bytecode that can be executed by the Java Virtual Machine (JVM).
+   
+   ##### **_Parsing_**: The Java compiler parses the lambda expression to determine its syntax and identify the variables that are used in the expression.
+   
+   ##### **_Type_ _Inference_**: The compiler infers the types of the lambda parameters based on the context in which the lambda expression is used.
+   
+   ##### **Creation of a Functional Interface**:_ A lambda expression is only valid if it can be assigned to a functional interface. A functional interface is an interface with a single abstract method. If the lambda expression matches the signature of the functional interface, the compiler creates an instance of that interface and assigns the lambda expression to it.
+    
+   ##### **Compilation**_: Finally, the compiler compiles the lambda expression and generates bytecode that can be executed by the Java Virtual Machine (JVM).
+
    During compilation, the lambda expression is translated into a class file that implements the functional interface. The class file contains a method that implements the lambda expression, as well as any captured variables and their values. When the lambda expression is executed, the JVM creates an instance of this class and invokes the method on that instance.
 
 
@@ -89,6 +93,7 @@ The Repository is a compendium of Java-based Functional Programming examples aim
       }
    ```
    But in that case if we need to pass more than 3 then it's a forever problem to solve, the best approach would be to apply Currying.
+
 
 7. Currying: Function currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take a single argument.
    In other words, it transforms a function that takes multiple arguments into a chain of functions that each take a single argument and return a new function until all the original arguments are consumed.
