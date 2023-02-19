@@ -1,4 +1,4 @@
-# Function Programming In Java
+# Functional Programming In Java
 
 The Repository is a compendium of Java-based Functional Programming examples aimed at enhancing your comprehension of the concepts and facilitating your eventual implementation of them.
 
