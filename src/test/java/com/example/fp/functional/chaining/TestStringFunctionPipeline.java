@@ -1,4 +1,4 @@
-package com.example.fp.functional.basics;
+package com.example.fp.functional.chaining;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Spy;

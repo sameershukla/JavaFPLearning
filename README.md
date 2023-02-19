@@ -109,7 +109,8 @@ In general, function chaining can be used in any situation where you need to com
             }
       }
      ```
-But in that case if we need to pass more than 3 then it's a forever problem to solve, the best approach would be to apply Currying.
+If we need to pass more than three parameters to a function, it can become a difficult problem to solve. In such cases, using currying can be the most effective approach. 
+By breaking down the function into a series of nested functions, each taking one argument, we can create a more flexible and reusable solution.
 
 # Currying
 
@@ -138,6 +139,7 @@ But in that case if we need to pass more than 3 then it's a forever problem to s
 
 **Service composition:** In a service-oriented architecture, it's common to compose services by chaining together functions that handle different aspects of the service. Using function currying to chain together functions allows for greater flexibility and adaptability in service composition. For example, we can create a function that takes a URL as input and returns another function that fetches data from that URL, then another function that processes the data, and so on.
 
+# MONADS
 
 @author: Sameer Shukla
 

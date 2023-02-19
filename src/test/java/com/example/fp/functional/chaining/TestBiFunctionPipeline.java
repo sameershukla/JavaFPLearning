@@ -1,4 +1,4 @@
-package com.example.fp.functional.basics;
+package com.example.fp.functional.chaining;
 
 import com.example.fp.functional.tuple.Tuple;
 import org.junit.jupiter.api.Test;
