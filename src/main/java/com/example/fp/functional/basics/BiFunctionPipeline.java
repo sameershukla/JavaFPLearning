@@ -4,7 +4,7 @@ import com.example.fp.functional.tuple.Tuple;
 
 import java.util.function.BiFunction;
 
-public class BiFunctionChaining {
+public class BiFunctionPipeline {
 
     /**
      * Function accepts 2 params and return Tuple
@@ -43,7 +43,7 @@ public class BiFunctionChaining {
         if(input1 == null || input2 == null)
             throw new IllegalArgumentException("Input cannot be null");
 
-        BiFunction<String, String, Tuple<String, String>> pipeline = BiFunctionChaining::addText;
+        BiFunction<String, String, Tuple<String, String>> pipeline = BiFunctionPipeline::addText;
         return pipeline
                 .andThen(t -> removeCharacters(t._1(), t._2()))
                 .andThen(t -> capitalize(t._1(), t._2()))

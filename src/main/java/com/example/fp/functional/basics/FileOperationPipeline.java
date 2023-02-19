@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class FileOperationChaining {
+public class FileOperationPipeline {
 
     private static String lines;
 
@@ -74,11 +74,11 @@ public class FileOperationChaining {
     }
 
     public static void main(String[] args) {
-        Function<String, BufferedReader> pipeline = FileOperationChaining::createReader;
+        Function<String, BufferedReader> pipeline = FileOperationPipeline::createReader;
         pipeline
-                .andThen(FileOperationChaining::readLines)
-                .andThen(FileOperationChaining::print)
-                .andThen(FileOperationChaining::closeReader)
+                .andThen(FileOperationPipeline::readLines)
+                .andThen(FileOperationPipeline::print)
+                .andThen(FileOperationPipeline::closeReader)
                 .apply("example.txt");
     }
 }

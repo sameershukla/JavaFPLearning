@@ -1,6 +1,5 @@
 package com.example.fp.functional.currying;
 
-import com.example.fp.functional.basics.TriFunctionChaining;
 import com.example.fp.functional.tuple.Tuple;
 
 import java.util.function.BiFunction;

@@ -1,9 +1,8 @@
 package com.example.fp.functional.basics;
 
-import java.util.Objects;
 import java.util.function.Function;
 
-public class StringChaining {
+public class StringFunctionPipeline {
 
     private static String addText(String text){
         return text;
@@ -21,10 +20,10 @@ public class StringChaining {
         if(input == null)
             throw new IllegalArgumentException("Input cannot be null");
 
-        Function<String, String> pipeline = StringChaining:: addText;
+        Function<String, String> pipeline = StringFunctionPipeline:: addText;
         return pipeline
-                .andThen(StringChaining:: removeSpecialCharacters)
-                .andThen(StringChaining:: capitalize)
+                .andThen(StringFunctionPipeline:: removeSpecialCharacters)
+                .andThen(StringFunctionPipeline:: capitalize)
                 .apply(input);
     }
 

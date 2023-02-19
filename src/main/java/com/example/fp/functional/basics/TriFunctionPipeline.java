@@ -2,7 +2,7 @@ package com.example.fp.functional.basics;
 
 import com.example.fp.functional.tuple.Tuple;
 
-public class TriFunctionChaining {
+public class TriFunctionPipeline {
 
     /**
      * Method accepts 3 parameters, concatenate and return a Tuple
@@ -37,9 +37,9 @@ public class TriFunctionChaining {
         if(input1 == null || input2 == null || input3 == null)
             throw new IllegalArgumentException("Input cannot be null");
 
-        TriFunction<String, String, String, Tuple<String, String>> pipeline = TriFunctionChaining :: concatenate;
+        TriFunction<String, String, String, Tuple<String, String>> pipeline = TriFunctionPipeline:: concatenate;
         return pipeline
-                .andThen(TriFunctionChaining :: capitalize)
+                .andThen(TriFunctionPipeline:: capitalize)
                 .apply(input1, input2, input3);
     }
 

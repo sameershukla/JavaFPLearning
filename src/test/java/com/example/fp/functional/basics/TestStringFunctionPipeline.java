@@ -5,25 +5,25 @@ import org.mockito.Spy;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestStringChaining {
+public class TestStringFunctionPipeline {
 
     @Spy
-    private StringChaining stringChaining;
+    private StringFunctionPipeline stringChaining;
 
     @Test
     public void testLetterChain(){
-       assertEquals("HELLO WORLD", StringChaining.letterChain("Hello World"));
+       assertEquals("HELLO WORLD", StringFunctionPipeline.letterChain("Hello World"));
     }
 
     @Test
     public void testLetterSpecialCharacter(){
-        assertEquals("HELLO WORLD", StringChaining.letterChain("Hello @#$@#$#@$#@$@#World"));
+        assertEquals("HELLO WORLD", StringFunctionPipeline.letterChain("Hello @#$@#$#@$#@$@#World"));
     }
 
     @Test
     public void testLetterNull(){
         Exception exception = assertThrows(RuntimeException.class, () -> {
-            StringChaining.letterChain(null);
+            StringFunctionPipeline.letterChain(null);
         });
         assertTrue(exception.getMessage().contains("Input cannot be null"));
     }

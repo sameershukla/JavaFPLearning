@@ -15,10 +15,10 @@ The Repository is a compendium of Java-based Functional Programming examples aim
 # Fundamentals
 
 1. In Java, a lambda expression is a type of anonymous function that can be used to represent a block of code that can be passed as an argument to a method or stored in a variable. When a Java compiler encounters a lambda expression in the source code, it performs several steps to detect and process it:
-   Parsing: The Java compiler parses the lambda expression to determine its syntax and identify the variables that are used in the expression.
-   Type Inference: The compiler infers the types of the lambda parameters based on the context in which the lambda expression is used.
-   Creation of a Functional Interface: A lambda expression is only valid if it can be assigned to a functional interface. A functional interface is an interface with a single abstract method. If the lambda expression matches the signature of the functional interface, the compiler creates an instance of that interface and assigns the lambda expression to it.
-   Compilation: Finally, the compiler compiles the lambda expression and generates bytecode that can be executed by the Java Virtual Machine (JVM).
+   **Parsing**: The Java compiler parses the lambda expression to determine its syntax and identify the variables that are used in the expression.
+   **Type Inference**: The compiler infers the types of the lambda parameters based on the context in which the lambda expression is used.
+   **Creation of a Functional Interface**: A lambda expression is only valid if it can be assigned to a functional interface. A functional interface is an interface with a single abstract method. If the lambda expression matches the signature of the functional interface, the compiler creates an instance of that interface and assigns the lambda expression to it.
+   **Compilation**: Finally, the compiler compiles the lambda expression and generates bytecode that can be executed by the Java Virtual Machine (JVM).
    During compilation, the lambda expression is translated into a class file that implements the functional interface. The class file contains a method that implements the lambda expression, as well as any captured variables and their values. When the lambda expression is executed, the JVM creates an instance of this class and invokes the method on that instance.
 
 
@@ -73,12 +73,37 @@ The Repository is a compendium of Java-based Functional Programming examples aim
      }
       ```
 
-6. Currying: Function currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take a single argument. In other words, it transforms a function that takes multiple arguments into a chain of functions that each take a single argument and return a new function until all the original arguments are consumed.
+6. TriFunction: If we require more than two parameters to be passed to a function, such as three parameters, we may encounter a problem as there is no TriFunction interface available in Java. However, there are two potential solutions to this issue. 
+   The first is to create our own TriFunction interface, which would resemble something like:, 
+
+      ```
+      @FunctionalInterface
+      public interface TriFunction<A, B, C, R> {
+           R apply(A a, B b, C c);
+
+           default <R> TriFunction<A, B, C, R> andThen(TriFunction<A, B, C, R> after) {
+              return (A a, B b, C c) -> after.apply(a,b,c);
+            }
+      }
+   ```
+   But in that case if we need to pass more than 3 then it's a forever problem to solve, the best approach would be to apply Currying.  
+
+7. Currying: Function currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take a single argument. 
+   In other words, it transforms a function that takes multiple arguments into a chain of functions that each take a single argument and return a new function until all the original arguments are consumed.
    Java's Function interface supports currying through the use of the "andThen" and "compose" methods. These methods enable the creation of a sequence of functions where the output of one function is used as the input of another function. By chaining functions together in this way, it is possible to create a pipeline of transformations that can be applied to data in a flexible and modular way.
    Currying has several benefits, including making it easier to reuse and compose functions, and enabling functions to be partially applied with some of their arguments fixed at runtime. This can lead to more modular, maintainable code and can simplify the development process. However, it's important to use currying judiciously and to avoid creating overly complex function chains that are difficult to reason about.
 
-   Function<String, Function<String, Function<String, String>>> curry = (f) -> (s) -> (t) -> f + " "+ s + " " + t;
-   System.out.println(curry.apply("Java").apply("Programming").apply("Language")); # Java Programming Language
+   ```
+      //Currying with 2 params
+      Function<Integer, Function<Integer, Integer>> add = (param1) -> (param2) -> param1 + param2; 
+   
+      //Currying with 3 params
+      Function<String, Function<String, Function<String, String>>> curry = (f) -> (s) -> (t) -> f + " "+ s + " " + t;
+      System.out.println(curry.apply("Java").apply("Programming").apply("Language")); # Java Programming Language
+   
+   ```
+
+   
    
    
    

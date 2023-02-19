@@ -2,22 +2,21 @@ package com.example.fp.functional.basics;
 
 import com.example.fp.functional.tuple.Tuple;
 import org.junit.jupiter.api.Test;
-import org.mockito.Spy;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestBiFunctionChaining {
+public class TestBiFunctionPipeline {
 
     @Test
     public void testLetterChain(){
-        Tuple<String, String> tuple =  BiFunctionChaining.letterChain("Hello", "World");
+        Tuple<String, String> tuple =  BiFunctionPipeline.letterChain("Hello", "World");
         String result = tuple._1() + tuple._2();
         assertEquals("HELLOWORLD", result);
     }
 
     @Test
     public void testLetterSpecialCharacter(){
-        Tuple<String, String> tuple =  BiFunctionChaining.letterChain("Hello@#$@#$@#$", "#$#@$#@4World@#$@#$");
+        Tuple<String, String> tuple =  BiFunctionPipeline.letterChain("Hello@#$@#$@#$", "#$#@$#@4World@#$@#$");
         String result = tuple._1() + tuple._2();
         assertEquals("HELLO  WORLD ", result);
     }
@@ -25,8 +24,8 @@ public class TestBiFunctionChaining {
     @Test
     public void testLetterNull(){
         Exception exception = assertThrows(RuntimeException.class, () -> {
-            BiFunctionChaining.letterChain(null, "qweqw");
-            BiFunctionChaining.letterChain("qweqwe", null);
+            BiFunctionPipeline.letterChain(null, "qweqw");
+            BiFunctionPipeline.letterChain("qweqwe", null);
         });
         assertTrue(exception.getMessage().contains("Input cannot be null"));
     }

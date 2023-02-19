@@ -14,5 +14,4 @@ public interface TriFunction<A, B, C, R> {
     default <R> TriFunction<A, B, C, R> andThen(TriFunction<A, B, C, R> after) {
         return (A a, B b, C c) -> after.apply(a,b,c);
     }
-
 }
