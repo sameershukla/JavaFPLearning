@@ -1,5 +1,7 @@
 # Functional Programming In Java
 
+<img src="https://miro.medium.com/max/1200/1*S5KkDX11wbKa6suvBPBFJA.png" width="400">
+
 The Repository is a compendium of Java-based Functional Programming examples aimed at enhancing your comprehension of the concepts and facilitating your eventual implementation of them.
 
 # Package info
@@ -51,7 +53,7 @@ The Repository is a compendium of Java-based Functional Programming examples aim
    System.out.println(addOneAfterDoubleIt.apply(5)); // Output: 11
 
 
-5. BiFunction can be represented as Function<A, Function<A, B>> 
+5. BiFunction can be represented as Function<A, Function<A, B>>
 
       ```
       /**
@@ -73,8 +75,8 @@ The Repository is a compendium of Java-based Functional Programming examples aim
      }
       ```
 
-6. TriFunction: If we require more than two parameters to be passed to a function, such as three parameters, we may encounter a problem as there is no TriFunction interface available in Java. However, there are two potential solutions to this issue. 
-   The first is to create our own TriFunction interface, which would resemble something like:, 
+6. TriFunction: If we require more than two parameters to be passed to a function, such as three parameters, we may encounter a problem as there is no TriFunction interface available in Java. However, there are two potential solutions to this issue.
+   The first is to create our own TriFunction interface, which would resemble something like:,
 
       ```
       @FunctionalInterface
@@ -86,9 +88,9 @@ The Repository is a compendium of Java-based Functional Programming examples aim
             }
       }
    ```
-   But in that case if we need to pass more than 3 then it's a forever problem to solve, the best approach would be to apply Currying.  
+   But in that case if we need to pass more than 3 then it's a forever problem to solve, the best approach would be to apply Currying.
 
-7. Currying: Function currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take a single argument. 
+7. Currying: Function currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take a single argument.
    In other words, it transforms a function that takes multiple arguments into a chain of functions that each take a single argument and return a new function until all the original arguments are consumed.
    Java's Function interface supports currying through the use of the "andThen" and "compose" methods. These methods enable the creation of a sequence of functions where the output of one function is used as the input of another function. By chaining functions together in this way, it is possible to create a pipeline of transformations that can be applied to data in a flexible and modular way.
    Currying has several benefits, including making it easier to reuse and compose functions, and enabling functions to be partially applied with some of their arguments fixed at runtime. This can lead to more modular, maintainable code and can simplify the development process. However, it's important to use currying judiciously and to avoid creating overly complex function chains that are difficult to reason about.
@@ -102,6 +104,8 @@ The Repository is a compendium of Java-based Functional Programming examples aim
       System.out.println(curry.apply("Java").apply("Programming").apply("Language")); # Java Programming Language
    
    ```
+
+   @author: Sameer Shukla
 
    
    
