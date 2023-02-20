@@ -8,7 +8,7 @@ import java.util.function.Function;
 /**
  * Consists of 4 functions, createUrl, Invoke Service, Process Response, outcome
  */
-public class RestApiPipelineExample {
+public class RestClientPipelineExample {
 
     private static Tuple<String, URL> createUrl(String inputUrl)  {
         try {
@@ -32,7 +32,7 @@ public class RestApiPipelineExample {
     }
 
     public static String invoke(String url){
-        Function<String, Tuple<String, URL>> pipeline = RestApiPipelineExample :: createUrl;
+        Function<String, Tuple<String, URL>> pipeline = RestClientPipelineExample:: createUrl;
         return pipeline
                 .andThen(t -> invokeApi(t._2()))
                 .andThen(t -> processResponse(t))
