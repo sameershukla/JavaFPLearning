@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.fp.functional.currying.TestCurriedEmailComposer" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-19T20:55:56" hostname="Sameers-MBP.attlocal.net" time="0.011">
-  <properties/>
-  <testcase name="testEmailNull()" classname="com.example.fp.functional.currying.TestCurriedEmailComposer" time="0.007"/>
-  <testcase name="testEmail()" classname="com.example.fp.functional.currying.TestCurriedEmailComposer" time="0.004"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

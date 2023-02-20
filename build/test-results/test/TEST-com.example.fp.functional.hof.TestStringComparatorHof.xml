@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.fp.functional.hof.TestStringComparatorHof" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-20T04:51:27" hostname="Sameers-MBP.attlocal.net" time="0.007">
+  <properties/>
+  <testcase name="testStringUnEquals()" classname="com.example.fp.functional.hof.TestStringComparatorHof" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

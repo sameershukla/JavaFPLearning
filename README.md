@@ -2,16 +2,31 @@
 
 <img src="https://axisapplications.com/wp-content/uploads/2019/02/functionalprogramming_icon-300x300.png" width="300">
 
+# Overview
 
 The Repository is a compendium of Java-based Functional Programming examples aimed at enhancing your comprehension of the concepts and facilitating your eventual implementation of them.
+Throughout this course, you will gain a solid understanding of Functional programming concepts, starting from the fundamentals and progressing to more advanced topics. You will learn how to write Higher Order Functions in Java and how to leverage Function Chaining to produce elegant and efficient code. 
+Additionally, you will explore Function Currying, Partial Functions, and Monads. One noteworthy aspect of this course is that it includes a variety of practical examples, which will be incredibly beneficial for your learning experience.
+
+# What you'll learn
+
+ - Writing Higher Order Functions and Utilizing it Pragmatically 
+ - Function Chaining, BiFunction Chaining, Tri Function Chaining, understanding advantages of Tuples, Unit
+ - Function Currying
+ - Monads
+ - Writing Functional Utility Methods, like zip, foldLeft, foldRight
+
 
 # Package info
 
-##### 1. _functional.basics_: Contains examples of function chaining, the package has example of Function, BiFunction and user-defined TriFunction chaining.
+##### 1. _functional.hof_: Contains Higher Order Function Examples
 
-##### 2. _functional.tuple_: A tuple is similar to an array, but unlike an array, it can hold elements of different types, and it has a fixed length. Tuples are a convenient way to group together related data that doesn't naturally fit into a class or a case class. The Tuple is a user-defined class.
 
-##### _3. functional.currying:_ Contains examples of Currying
+##### 2. _functional.basics_: Contains examples of function chaining, the package has example of Function, BiFunction and user-defined TriFunction chaining.
+
+##### 3. _functional.tuple_: A tuple is similar to an array, but unlike an array, it can hold elements of different types, and it has a fixed length. Tuples are a convenient way to group together related data that doesn't naturally fit into a class or a case class. The Tuple is a user-defined class.
+
+##### 4. functional.currying:_ Contains examples of Currying
 
 # Fundamentals
 
@@ -27,6 +42,57 @@ The Repository is a compendium of Java-based Functional Programming examples aim
 
    During compilation, the lambda expression is translated into a class file that implements the functional interface. The class file contains a method that implements the lambda expression, as well as any captured variables and their values. When the lambda expression is executed, the JVM creates an instance of this class and invokes the method on that instance.
 
+# Higher Order Function 
+
+  A higher-order function is a function that can take one or more functions as arguments, and/or return a function as its result. 
+  This allows for more flexible and reusable code, as functions can be passed around like any other value. We are familiar with 'map()', 'filter()' methods both of them take Function as arguments 
+
+  They are an important and powerful concept in functional programming, providing several benefits, including:
+   
+  **Code reuse**: Higher-order functions allow you to abstract away common patterns of code, such as iterating over a collection, filtering elements, or mapping values. Once you have written a higher-order function for a particular pattern, you can reuse it with different functions to achieve different behaviors.
+   
+  **Code clarity**: Higher-order functions can make code more concise and easier to read by removing unnecessary boilerplate code. By passing a function as an argument to another function, you can define behavior in a clear and declarative way.
+   
+  **Flexibility**: Higher-order functions allow you to write more flexible code that can adapt to different situations. By allowing functions to be passed as arguments or returned as results, higher-order functions can be used to create generic and reusable code that can be adapted to different contexts.
+   
+  **Separation of concerns**: Higher-order functions can help to separate concerns by allowing you to define specific behavior in separate functions, which can then be combined and reused as necessary. This can make code more modular and easier to test.
+   
+  **Function composition and Chaining**: Higher-order functions can be used to compose more complex functions by combining simpler functions in a logical and reusable way. This can make code more expressive and easier to reason about. 
+    
+####   Example of HOF that takes Function as an argument 
+  
+   ```
+    public static void applyMultiplyFunction(Integer[] numbers, Function<Integer, Integer> f){
+        for(int i=0; i < numbers.length; i++){
+            numbers[i] = f.apply(numbers[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        Integer[] numbers = {1,2,3,4,5};
+        Function<Integer, Integer> multiply = x -> x * 2;
+        applyMultiplyFunction(numbers, multiply);
+        System.out.println(Arrays.toString(numbers));
+    }
+  ```
+  In the above example, we have created a Higher Order Function "applyMultiplyFunction" that takes an array of integers and a function as arguments, and applies the function to each element of the array.
+  This example demonstrates how higher-order functions can be used to make our code more modular and reusable, by abstracting away the details of how a function is applied to an array or collection.
+
+####   Example of HOF that returns Function as it's result
+
+    ```
+       private static Function<String, String> prefix = str -> str;
+   
+       private static Function<String, String> suffix(String str){
+           return suffix -> str + " " + suffix;
+       }
+   
+       public static void main(String[] args) {
+           Function<String, Function<String, String>> namePipeline = name -> prefix.andThen(suffix(name));
+           System.out.println(namePipeline.apply("John").apply("Doe"));
+       }
+    ```
+The example above includes the creation of two functions, "prefix" and "suffix", both of which return a function that takes a string input and produces a string output. These two functions are then combined together using a pipeline, allowing their outputs to be concatenated.
 
 # Function Chaining
 
@@ -55,25 +121,37 @@ In general, function chaining can be used in any situation where you need to com
 
 # Function Chaining Methods and Interfaces
 
+**apply Function**: The 'apply()' method takes an input and returns a result. It is used to apply a function to an argument and compute a result
+
+   ```
+   Function<Integer, Integer> doubleFunction = x -> x * 2;
+   Integer result = doubleFunction.apply(5); // result is 10
+   ```
+In this example, we have created a function that doubles its input and applied it to the integer 5. The apply() method takes the integer 5 as an argument and returns the result 10.
+Remember: apply returns a result
+
 **andThen Function:** The Function interface's "andThen" method takes a sequence of two functions and applies them in succession, using the output of the first function as the input to the second function. This chaining of the functions results in a new function that combines the behavior of both functions in a single transformation. Here's an example:
 
-   Function<Integer, Integer> addOne = x -> x + 1;
-   Function<Integer, Integer> doubleIt = x -> x * 2;
-   Function<Integer, Integer> addOneAndDoubleIt = addOne.andThen(doubleIt);
-
-   System.out.println(addOneAndDoubleIt.apply(5)); // Output: 12
-
-
-
+    ```
+      Function<Integer, Integer> addOne = x -> x + 1;
+      Function<Integer, Integer> doubleIt = x -> x * 2;
+      Function<Integer, Integer> addOneAndDoubleIt = addOne.andThen(doubleIt);
+   
+      System.out.println(addOneAndDoubleIt.apply(5)); // Output: 12
+   
+    ```
+ 
 **compose Function:** In contrast to the "andThen" method, the "compose" method applies the first function to the output of the second function. This means that the second function is applied to the input, and then the first function is applied to the output of the second function. This results in a chain of functions where the output of the second function becomes the input of the first function.. Here's an example:
 
-   Function<Integer, Integer> addOne = x -> x + 1;
-   Function<Integer, Integer> doubleIt = x -> x * 2;
-   Function<Integer, Integer> addOneAfterDoubleIt = addOne.compose(doubleIt);
-
-   System.out.println(addOneAfterDoubleIt.apply(5)); // Output: 11
-
-
+       ```
+         Function<Integer, Integer> addOne = x -> x + 1;
+         Function<Integer, Integer> doubleIt = x -> x * 2;
+         Function<Integer, Integer> addOneAfterDoubleIt = addOne.compose(doubleIt);
+      
+         System.out.println(addOneAfterDoubleIt.apply(5)); // Output: 11
+      
+       ```
+ 
 **BiFunction Interface:** BiFunction can be represented as Function<A, Function<A, B>>
 
       ```
