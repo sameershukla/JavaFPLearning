@@ -5,6 +5,7 @@
 # Overview
 
 The Repository is a compendium of Java-based Functional Programming examples aimed at enhancing your comprehension of the concepts and facilitating your eventual implementation of them.
+The examples in this repo doesn't contains the examples of how to use obvious map, filter, reduce, instead it focuses on writing efficient functional code. 
 Throughout this course, you will gain a solid understanding of Functional programming concepts, starting from the fundamentals and progressing to more advanced topics. You will learn how to write Higher Order Functions in Java and how to leverage Function Chaining to produce elegant and efficient code. 
 Additionally, you will explore Function Currying, Partial Functions, and Monads. One noteworthy aspect of this course is that it includes a variety of practical examples, which will be incredibly beneficial for your learning experience.
 
@@ -217,7 +218,9 @@ By breaking down the function into a series of nested functions, each taking one
 
 **Service composition:** In a service-oriented architecture, it's common to compose services by chaining together functions that handle different aspects of the service. Using function currying to chain together functions allows for greater flexibility and adaptability in service composition. For example, we can create a function that takes a URL as input and returns another function that fetches data from that URL, then another function that processes the data, and so on.
 
-# MONADS
+# Partial Functions
+
+# Monads 
 
 @author: Sameer Shukla
 
