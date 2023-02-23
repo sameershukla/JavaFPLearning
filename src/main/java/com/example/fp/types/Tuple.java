@@ -1,4 +1,4 @@
-package com.example.fp.chaining.tuple;
+package com.example.fp.types;
 
 import java.util.Objects;
 
@@ -7,7 +7,7 @@ import java.util.Objects;
  * @param <A>
  * @param <B>
  */
-public class Tuple <A, B> {
+public class Tuple<A, B> {
 
     A first;
     B second;

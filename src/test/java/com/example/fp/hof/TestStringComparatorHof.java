@@ -1,5 +1,6 @@
-package com.example.fp.chaining.hof;
+package com.example.fp.hof;
 
+import com.example.fp.hof.StringComparatorHof;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class TestStringComparatorHof {

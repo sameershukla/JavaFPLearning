@@ -1,4 +1,4 @@
-package com.example.fp.chaining.hof;
+package com.example.fp.hof;
 
 import java.util.function.Function;
 

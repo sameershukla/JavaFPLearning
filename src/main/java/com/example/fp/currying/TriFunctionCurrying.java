@@ -1,6 +1,6 @@
-package com.example.fp.chaining.currying;
+package com.example.fp.currying;
 
-import com.example.fp.chaining.tuple.Tuple;
+import com.example.fp.types.Tuple;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

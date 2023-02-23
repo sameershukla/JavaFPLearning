@@ -1,6 +1,6 @@
 package com.example.fp.chaining.basic;
 
-import com.example.fp.chaining.tuple.Tuple;
+import com.example.fp.types.Tuple;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.function.Function;

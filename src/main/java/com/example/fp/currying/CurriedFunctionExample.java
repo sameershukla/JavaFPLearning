@@ -1,4 +1,4 @@
-package com.example.fp.chaining.currying;
+package com.example.fp.currying;
 
 import java.util.function.Function;
 

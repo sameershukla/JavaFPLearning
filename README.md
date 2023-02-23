@@ -9,13 +9,21 @@ The examples in this repo doesn't contains the examples of how to use obvious ma
 Throughout this course, you will gain a solid understanding of Functional programming concepts, starting from the fundamentals and progressing to more advanced topics. You will learn how to write Higher Order Functions in Java and how to leverage Function Chaining to produce elegant and efficient code. 
 Additionally, you will explore Function Currying, Partial Functions, and Monads. One noteworthy aspect of this course is that it includes a variety of practical examples, which will be incredibly beneficial for your learning experience.
 
-# What you'll learn
+# What you'll learn and how the code is structured. 
 
- - Writing Higher Order Functions and Utilizing it Pragmatically 
- - Function Chaining, BiFunction Chaining, Tri Function Chaining, understanding advantages of Tuples, Unit
- - Function Currying
- - Monads
- - Writing Functional Utility Methods, like zip, foldLeft, foldRight
+The repository contains examples that demonstrate the principles of writing elegant functional code. 
+The "chaining.basic" package is particularly noteworthy for demonstrating how to chain together regular functions. 
+Here is the suggested learning order for the included examples:
+
+**StringFunctionPipeline:** Demonstrates how to create a pipeline of functions to manipulate strings.
+
+**FileOperationPipeline:** Breaks down a regular file reading code into a sequence of functions that are later chained together.
+
+**BiFunctionPipeline:** Explores how to chain together BiFunctions and return Tuples. The Tuple class is introduced and utilized.
+
+**TriFunction:** This interface handles three parameters, and the TriFunctionPipeline example showcases how to handle functions with three parameters.
+
+ 
 
 
 # Package info

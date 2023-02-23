@@ -1,6 +1,7 @@
-package com.example.fp.chaining.currying;
+package com.example.fp.currying;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestCurryingFunctionExample {

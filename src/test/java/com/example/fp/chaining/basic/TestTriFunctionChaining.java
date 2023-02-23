@@ -1,6 +1,6 @@
 package com.example.fp.chaining.basic;
 
-import com.example.fp.chaining.tuple.Tuple;
+import com.example.fp.types.Tuple;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
