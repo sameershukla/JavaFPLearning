@@ -1,9 +1,9 @@
-package com.example.fp.chaining.functionexplorer;
+package com.example.fp.chaining.advance;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public class FunctionExplorer {
+public class FunctionExample {
 
     /**
      * Input is Function<String, Function<String,String>>
@@ -32,14 +32,10 @@ public class FunctionExplorer {
     }
 
     public static void main(String[] args) {
-
         // (s1) -> (s2) -> s1 + s2
         System.out.println(function((s1) -> (s2) -> s1 + s2));
         System.out.println(func(s1 -> (s2) -> s1 + s2).apply("World"));
-
         //bifunction (s1, s2) -> s1 + s2
         System.out.println(biFunc((s1, s2) -> s1 + s2));
-
-
     }
 }

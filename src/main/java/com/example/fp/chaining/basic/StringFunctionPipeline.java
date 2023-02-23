@@ -1,5 +1,10 @@
 package com.example.fp.chaining.basic;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.function.Function;
 
 public class StringFunctionPipeline {
@@ -26,5 +31,4 @@ public class StringFunctionPipeline {
                 .andThen(StringFunctionPipeline:: capitalize)
                 .apply(input);
     }
-
 }

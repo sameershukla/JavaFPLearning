@@ -20,8 +20,7 @@ public class RestClientPipelineExample {
 
     private static Tuple<Integer, String> invokeApi(URL inputUrl) {
         //Call Service
-        Tuple<Integer, String> tuple = new Tuple<>(200, "Success");
-        return tuple;
+        return new Tuple<>(200, "Success");
     }
 
     private static String processResponse(Tuple<Integer, String> response){

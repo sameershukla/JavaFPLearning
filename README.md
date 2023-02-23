@@ -12,8 +12,8 @@ Additionally, you will explore Function Currying, Partial Functions, and Monads.
 # What you'll learn and how the code is structured. 
 
 The repository contains examples that demonstrate the principles of writing elegant functional code. 
-The "chaining.basic" package is particularly noteworthy for demonstrating how to chain together regular functions. 
-Here is the suggested learning order for the included examples:
+
+## The "chaining.basic" package is particularly noteworthy for demonstrating how to chain together regular functions. Here is the suggested learning order for the included examples:
 
 **StringFunctionPipeline:** Demonstrates how to create a pipeline of functions to manipulate strings.
 
@@ -23,19 +23,24 @@ Here is the suggested learning order for the included examples:
 
 **TriFunction:** This interface handles three parameters, and the TriFunctionPipeline example showcases how to handle functions with three parameters.
 
- 
+**UserManagementService**: This example demonstrates how to chain functions together in a Spring Boot application.
 
+## The "chaining.advance" package is especially notable for showcasing how to chain together objects of the java.util.function.Function interface. Here is the suggested learning order for the included examples:
+
+**FunctionExample:** Demonstrates how Function as First class citizens in Java.
+**StringFunctionPipeline:** Demonstrates how to create a pipeline of Functions to manipulate strings.
+**FunctionCompositionExample:** Demonstrates the difference between 'compose' and 'andThen' functions
 
 # Package info
 
-##### 1. _functional.hof_: Contains Higher Order Function Examples
+##### 1. chaining: Contains examples of function chaining, the package has example of Function, BiFunction and user-defined TriFunction chaining.
 
+##### 2. functional.currying:_ Contains examples of Currying
 
-##### 2. _functional.basics_: Contains examples of function chaining, the package has example of Function, BiFunction and user-defined TriFunction chaining.
+##### 3. _functional.hof_: Contains Higher Order Function Examples
 
-##### 3. _functional.tuple_: A tuple is similar to an array, but unlike an array, it can hold elements of different types, and it has a fixed length. Tuples are a convenient way to group together related data that doesn't naturally fit into a class or a case class. The Tuple is a user-defined class.
+##### 4. _types_: Contains clases like Tuples and Unit, A tuple is similar to an array, but unlike an array, it can hold elements of different types, and it has a fixed length. Tuples are a convenient way to group together related data that doesn't naturally fit into a class or a case class. The Tuple is a user-defined class.
 
-##### 4. functional.currying:_ Contains examples of Currying
 
 # Function in Functional Programming 
 
@@ -60,6 +65,102 @@ Here is the suggested learning order for the included examples:
    ##### **Compilation**_: Finally, the compiler compiles the lambda expression and generates bytecode that can be executed by the Java Virtual Machine (JVM).
 
    During compilation, the lambda expression is translated into a class file that implements the functional interface. The class file contains a method that implements the lambda expression, as well as any captured variables and their values. When the lambda expression is executed, the JVM creates an instance of this class and invokes the method on that instance.
+
+# Function Chaining
+
+In order to create a chain of functions, it is essential to first instantiate a Function or BiFunction object.
+This marks the beginning of the pipeline. For example, you could create a Function<String, String> object named "pipeline" using the
+"createReader" method of the "FileOps" class. Once you have created the "pipeline" object, you can use the "andThen" method to chain subsequent functions together.
+Each function in the chain will take the output of the preceding function as input. Eventually, the final function in the chain should return a String value.
+
+Function<String, String> pipeline = FileOps :: createReader;
+
+pipeline.andThen("Output of Create Reader is input here") and so on, but eventually it should return String.
+
+more details can be found here: https://www.c-sharpcorner.com/article/creating-function-pipelines-in-java/
+
+# Function Chaining Use Cases
+
+**Data processing**: Function chaining can be used to perform a series of data transformations on a collection or stream of data, such as filtering, mapping, sorting, and reducing. By chaining these operations together, you can create a data processing pipeline that is both efficient and easy to read and maintain.
+
+**Input validation**: Function chaining can be used to validate user input by applying a series of validation rules to the input data. Each function in the chain can check a specific aspect of the input, such as its length, format, or range, and return an error message if the input fails the validation.
+
+**Logging and debugging**: Function chaining can be used to create a chain of logging or debugging statements that track the execution of a program or a specific code path. Each function in the chain can output a specific piece of information, such as the input or output data, the execution time, or the error message, and pass the output to the next function in the chain.
+
+**Configuration and setup**: Function chaining can be used to configure and set up a complex system or application. Each function in the chain can perform a specific configuration task, such as initializing a database connection, setting up a network connection, or loading a configuration file, and pass the configuration data to the next function in the chain.
+
+In general, function chaining can be used in any situation where you need to compose a series of related functions to perform a specific task or data transformation. By chaining the functions together, you can create a powerful and flexible pipeline that is both easy to use and easy to maintain.
+
+# Function Chaining Methods and Interfaces
+
+**apply Function**: The 'apply()' method takes an input and returns a result. It is used to apply a function to an argument and compute a result
+
+   ```
+   Function<Integer, Integer> doubleFunction = x -> x * 2;
+   Integer result = doubleFunction.apply(5); // result is 10
+   ```
+In this example, we have created a function that doubles its input and applied it to the integer 5. The apply() method takes the integer 5 as an argument and returns the result 10.
+Remember: apply returns a result
+
+**andThen Function:** The Function interface's "andThen" method takes a sequence of two functions and applies them in succession, using the output of the first function as the input to the second function. This chaining of the functions results in a new function that combines the behavior of both functions in a single transformation. Here's an example:
+
+    ```
+      Function<Integer, Integer> addOne = x -> x + 1;
+      Function<Integer, Integer> doubleIt = x -> x * 2;
+      Function<Integer, Integer> addOneAndDoubleIt = addOne.andThen(doubleIt);
+   
+      System.out.println(addOneAndDoubleIt.apply(5)); // Output: 12
+   
+    ```
+
+**compose Function:** In contrast to the "andThen" method, the "compose" method applies the first function to the output of the second function. This means that the second function is applied to the input, and then the first function is applied to the output of the second function. This results in a chain of functions where the output of the second function becomes the input of the first function.. Here's an example:
+
+       ```
+         Function<Integer, Integer> addOne = x -> x + 1;
+         Function<Integer, Integer> doubleIt = x -> x * 2;
+         Function<Integer, Integer> addOneAfterDoubleIt = addOne.compose(doubleIt);
+      
+         System.out.println(addOneAfterDoubleIt.apply(5)); // Output: 11
+      
+       ```
+
+**BiFunction Interface:** BiFunction can be represented as Function<A, Function<A, B>>
+
+      ```
+      /**
+      * Input is Function<String, Function<String,String>>
+      *     Input to Function is String and output is a second function
+      *       Input to second function is String and output is a String, hence on apply.apply a String is returned
+      *        Input to first function (s1) output is a function (s2) -> s1 + s2
+      *          Input to second function is (s2) output is s1 + s2
+      *
+      */
+      (s1) -> (s2) -> s1 + s2
+      private static String function(Function<String, Function<String, String>> f){
+         return f.apply("Hello").apply("World");
+      }
+      
+      (s1, s2) -> s1 + s2 
+      private static String biFunc(BiFunction<String, String, String> b){
+        return b.apply("Hello", "World");
+     }
+      ```
+
+**TriFunction:** If we require more than two parameters to be passed to a function, such as three parameters, we may encounter a problem as there is no TriFunction interface available in Java. However, there are two potential solutions to this issue.
+The first is to create our own TriFunction interface, which would resemble something like:,
+
+      ```
+      @FunctionalInterface
+      public interface TriFunction<A, B, C, R> {
+           R apply(A a, B b, C c);
+
+           default <R> TriFunction<A, B, C, R> andThen(TriFunction<A, B, C, R> after) {
+              return (A a, B b, C c) -> after.apply(a,b,c);
+            }
+      }
+     ```
+If we need to pass more than three parameters to a function, it can become a difficult problem to solve. In such cases, using currying can be the most effective approach.
+By breaking down the function into a series of nested functions, each taking one argument, we can create a more flexible and reusable solution.
 
 # Higher Order Function 
 
@@ -113,101 +214,7 @@ Here is the suggested learning order for the included examples:
     ```
 The example above includes the creation of two functions, "prefix" and "suffix", both of which return a function that takes a string input and produces a string output. These two functions are then combined together using a pipeline, allowing their outputs to be concatenated.
 
-# Function Chaining
 
-   In order to create a chain of functions, it is essential to first instantiate a Function or BiFunction object.
-   This marks the beginning of the pipeline. For example, you could create a Function<String, String> object named "pipeline" using the
-   "createReader" method of the "FileOps" class. Once you have created the "pipeline" object, you can use the "andThen" method to chain subsequent functions together.
-   Each function in the chain will take the output of the preceding function as input. Eventually, the final function in the chain should return a String value.
-
-   Function<String, String> pipeline = FileOps :: createReader;
-
-   pipeline.andThen("Output of Create Reader is input here") and so on, but eventually it should return String.
-
-   more details can be found here: https://www.c-sharpcorner.com/article/creating-function-pipelines-in-java/
-
-# Function Chaining Use Cases
-
-**Data processing**: Function chaining can be used to perform a series of data transformations on a collection or stream of data, such as filtering, mapping, sorting, and reducing. By chaining these operations together, you can create a data processing pipeline that is both efficient and easy to read and maintain.
-
-**Input validation**: Function chaining can be used to validate user input by applying a series of validation rules to the input data. Each function in the chain can check a specific aspect of the input, such as its length, format, or range, and return an error message if the input fails the validation.
-
-**Logging and debugging**: Function chaining can be used to create a chain of logging or debugging statements that track the execution of a program or a specific code path. Each function in the chain can output a specific piece of information, such as the input or output data, the execution time, or the error message, and pass the output to the next function in the chain.
-
-**Configuration and setup**: Function chaining can be used to configure and set up a complex system or application. Each function in the chain can perform a specific configuration task, such as initializing a database connection, setting up a network connection, or loading a configuration file, and pass the configuration data to the next function in the chain.
-
-In general, function chaining can be used in any situation where you need to compose a series of related functions to perform a specific task or data transformation. By chaining the functions together, you can create a powerful and flexible pipeline that is both easy to use and easy to maintain.
-
-# Function Chaining Methods and Interfaces
-
-**apply Function**: The 'apply()' method takes an input and returns a result. It is used to apply a function to an argument and compute a result
-
-   ```
-   Function<Integer, Integer> doubleFunction = x -> x * 2;
-   Integer result = doubleFunction.apply(5); // result is 10
-   ```
-In this example, we have created a function that doubles its input and applied it to the integer 5. The apply() method takes the integer 5 as an argument and returns the result 10.
-Remember: apply returns a result
-
-**andThen Function:** The Function interface's "andThen" method takes a sequence of two functions and applies them in succession, using the output of the first function as the input to the second function. This chaining of the functions results in a new function that combines the behavior of both functions in a single transformation. Here's an example:
-
-    ```
-      Function<Integer, Integer> addOne = x -> x + 1;
-      Function<Integer, Integer> doubleIt = x -> x * 2;
-      Function<Integer, Integer> addOneAndDoubleIt = addOne.andThen(doubleIt);
-   
-      System.out.println(addOneAndDoubleIt.apply(5)); // Output: 12
-   
-    ```
- 
-**compose Function:** In contrast to the "andThen" method, the "compose" method applies the first function to the output of the second function. This means that the second function is applied to the input, and then the first function is applied to the output of the second function. This results in a chain of functions where the output of the second function becomes the input of the first function.. Here's an example:
-
-       ```
-         Function<Integer, Integer> addOne = x -> x + 1;
-         Function<Integer, Integer> doubleIt = x -> x * 2;
-         Function<Integer, Integer> addOneAfterDoubleIt = addOne.compose(doubleIt);
-      
-         System.out.println(addOneAfterDoubleIt.apply(5)); // Output: 11
-      
-       ```
- 
-**BiFunction Interface:** BiFunction can be represented as Function<A, Function<A, B>>
-
-      ```
-      /**
-      * Input is Function<String, Function<String,String>>
-      *     Input to Function is String and output is a second function
-      *       Input to second function is String and output is a String, hence on apply.apply a String is returned
-      *        Input to first function (s1) output is a function (s2) -> s1 + s2
-      *          Input to second function is (s2) output is s1 + s2
-      *
-      */
-      (s1) -> (s2) -> s1 + s2
-      private static String function(Function<String, Function<String, String>> f){
-         return f.apply("Hello").apply("World");
-      }
-      
-      (s1, s2) -> s1 + s2 
-      private static String biFunc(BiFunction<String, String, String> b){
-        return b.apply("Hello", "World");
-     }
-      ```
-
-**TriFunction:** If we require more than two parameters to be passed to a function, such as three parameters, we may encounter a problem as there is no TriFunction interface available in Java. However, there are two potential solutions to this issue.
-   The first is to create our own TriFunction interface, which would resemble something like:,
-
-      ```
-      @FunctionalInterface
-      public interface TriFunction<A, B, C, R> {
-           R apply(A a, B b, C c);
-
-           default <R> TriFunction<A, B, C, R> andThen(TriFunction<A, B, C, R> after) {
-              return (A a, B b, C c) -> after.apply(a,b,c);
-            }
-      }
-     ```
-If we need to pass more than three parameters to a function, it can become a difficult problem to solve. In such cases, using currying can be the most effective approach. 
-By breaking down the function into a series of nested functions, each taking one argument, we can create a more flexible and reusable solution.
 
 # Currying
 

@@ -20,4 +20,6 @@ public class TestRestApiPipelineExample {
         });
         assertTrue(exception.getMessage().contains("no protocol: example.com"));
      }
+
+
 }
