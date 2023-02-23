@@ -29,7 +29,17 @@ Additionally, you will explore Function Currying, Partial Functions, and Monads.
 
 ##### 4. functional.currying:_ Contains examples of Currying
 
-# Fundamentals
+# Function in Functional Programming 
+
+   Functions are a key concept in functional programming, and are used to express computations and transformations on data. In functional programming, functions are treated as first-class citizens, meaning that they can be passed around as values, stored in variables or data structures, and returned as results from other functions.
+   Functions in functional programming are typically pure functions, which means that they don't have any side effects, and their output is solely determined by their input. This makes them very predictable and easy to reason about, since their behavior doesn't depend on any external state or context.
+
+   One way to perceive java.util.function.Function is as follows: 
+
+   ![img.png](function.png)
+   
+
+# Lambda Expression
 
   In Java, a lambda expression is a type of anonymous function that can be used to represent a block of code that can be passed as an argument to a method or stored in a variable. When a Java compiler encounters a lambda expression in the source code, it performs several steps to detect and process it:
    
