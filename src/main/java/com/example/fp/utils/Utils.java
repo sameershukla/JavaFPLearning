@@ -1,9 +1,11 @@
 package com.example.fp.utils;
 
+import com.example.fp.types.Tuple;
+
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public class CurryUtils {
+public class Utils {
 
     /**
      * Currying a BiFunction -> Function

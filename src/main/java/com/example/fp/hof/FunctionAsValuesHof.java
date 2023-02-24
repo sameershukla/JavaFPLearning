@@ -15,15 +15,18 @@ public class FunctionAsValuesHof {
 
     private static Function<Integer, Integer> add = n -> n + 2;
 
-    private static Function<Integer, Predicate<Integer>> isGreaterThan = threshold -> x -> x > 10;
+    private static Function<Integer, Predicate<Integer>> isGreaterThan = threshold -> x -> x >= 10;
 
     public static void main(String[] args) {
         Integer[] numbers = {1,2,3,4,5};
-        Function<Integer, Integer> pipeline = multiply.andThen(add);
-
+        Function<Integer, Predicate<Integer>> pipeline = isGreaterThan
+                                                            .compose(add)
+                                                            .compose(multiply);
         for(int i=0; i < numbers.length; i++){
-            numbers[i] = pipeline.apply(numbers[i]);
+            int n = numbers[i];
+            if(!pipeline.apply(n).test(n)){
+                System.out.println(n);
+            }
         }
-        System.out.println(Arrays.toString(numbers));
     }
 }
