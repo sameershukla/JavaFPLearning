@@ -226,22 +226,34 @@ The example above includes the creation of two functions, "prefix" and "suffix",
 
 
 
-# Currying
+# Currying and Partial Functions
 
    Function currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take a single argument.
    In other words, it transforms a function that takes multiple arguments into a chain of functions that each take a single argument and return a new function until all the original arguments are consumed.
    Java's Function interface supports currying through the use of the "andThen" and "compose" methods. These methods enable the creation of a sequence of functions where the output of one function is used as the input of another function. By chaining functions together in this way, it is possible to create a pipeline of transformations that can be applied to data in a flexible and modular way.
    Currying has several benefits, including making it easier to reuse and compose functions, and enabling functions to be partially applied with some of their arguments fixed at runtime. This can lead to more modular, maintainable code and can simplify the development process. However, it's important to use currying judiciously and to avoid creating overly complex function chains that are difficult to reason about.
 
+   Although Java doesn't have built-in support for function currying, it is still possible to implement curried functions using functional interfaces and lambda expressions. 
+   However, the syntax for defining a curried function in Java can be verbose and difficult to read. 
+   For example, declaring a function that takes two integer parameters and returns an integer in curried form would look like this: Function<Integer, Function<Integer, Integer>>, which can be challenging to interpret at first glance.
+ 
+   Below code show-case how currying looks like, 
+
    ```
-      //Currying with 2 params
+      //Curried function, it's returning other function, currying with 2 params
       Function<Integer, Function<Integer, Integer>> add = (param1) -> (param2) -> param1 + param2; 
    
-      //Currying with 3 params
+      //Curried function, it's returning other function, Currying with 3 params
       Function<String, Function<String, Function<String, String>>> curry = (f) -> (s) -> (t) -> f + " "+ s + " " + t;
       System.out.println(curry.apply("Java").apply("Programming").apply("Language")); # Java Programming Language
    
    ```
+
+
+   Several Java 8 functions, such as map in Optional or Stream, expect a Function as their argument. 
+   If we have a BiFunction, we can curry it and pass it directly to these functions without the need for a wrapper function or lambda expression.
+
+   
 
 # Currying Use Cases
 
@@ -253,7 +265,7 @@ The example above includes the creation of two functions, "prefix" and "suffix",
 
 **Service composition:** In a service-oriented architecture, it's common to compose services by chaining together functions that handle different aspects of the service. Using function currying to chain together functions allows for greater flexibility and adaptability in service composition. For example, we can create a function that takes a URL as input and returns another function that fetches data from that URL, then another function that processes the data, and so on.
 
-# Partial Functions
+
 
 # Monads 
 

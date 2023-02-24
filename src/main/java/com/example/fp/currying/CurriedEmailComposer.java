@@ -1,8 +1,6 @@
 package com.example.fp.currying;
 
 import java.util.function.Function;
-
-
 public class CurriedEmailComposer {
 
     private static Function<String, Function<String, String>> composeEmail(){
