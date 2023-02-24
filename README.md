@@ -17,19 +17,25 @@ The repository contains examples that demonstrate the principles of writing eleg
 
 The "chaining.basic" package provides a comprehensive guide for chaining regular functions, covering examples for String manipulation, file reading, and handling functions with multiple parameters. Here is the suggested order for learning these examples:
 
-StringFunctionPipeline: Creating a pipeline of functions to manipulate strings.
-FileOperationPipeline: Breaking down a file reading code into a sequence of functions that are later chained together.
-BiFunctionPipeline: Chaining BiFunctions and returning Tuples, utilizing the Tuple class.
-TriFunctionPipeline: Handling functions with three parameters using TriFunction.
-UserManagementService: Demonstrating function chaining in a Spring Boot application.
+**StringFunctionPipeline**: Creating a pipeline of functions to manipulate strings.
+
+**FileOperationPipeline**: Breaking down a file reading code into a sequence of functions that are later chained together.
+
+**BiFunctionPipeline**: Chaining BiFunctions and returning Tuples, utilizing the Tuple class.
+
+**TriFunctionPipeline**: Handling functions with three parameters using TriFunction.
+
+**UserManagementService**: Demonstrating function chaining in a Spring Boot application.
 
 ### The "chaining.advance" package is dedicated to showcasing how to chain objects of the java.util.function.Function interface. 
 
 Here is the suggested order for learning these examples:
 
-FunctionExample: Demonstrating Function as First-class citizens in Java.
-StringFunctionPipeline: Creating a pipeline of Functions to manipulate strings.
-FunctionCompositionExample: Understanding the difference between 'compose' and 'andThen' functions.
+**FunctionExample**: Demonstrating Function as First-class citizens in Java.
+
+**StringFunctionPipeline**: Creating a pipeline of Functions to manipulate strings.
+
+**FunctionCompositionExample**: Understanding the difference between 'compose' and 'andThen' functions.
 
 ###  Additional information:
 
