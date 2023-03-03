@@ -290,6 +290,13 @@ The example above includes the creation of two functions, "prefix" and "suffix",
 
 # Monads 
 
+A monad is a type that encapsulates a value and provides a way to chain operations on that value in a composable way. 
+Monads allow developers to abstract away common patterns of code and provide a consistent interface for working with different types of data.
+There are several popular monads in Java, including Optional, Stream, and CompletableFuture. The Optional monad is used to represent a value that may or may not be present, and provides methods for safely accessing and manipulating the value. The Stream monad is used to represent a sequence of values that can be transformed and filtered in a composable way. The CompletableFuture monad is used to represent a future result that can be processed in a non-blocking way, and provides methods for combining and transforming the results of multiple futures.
+In addition to these built-in monads, it's also possible to create custom monads in Java using libraries such as the Functional Java library or the Vavr library. These libraries provide abstractions for working with monads and other functional programming concepts in a more idiomatic and expressive way.
+Overall, monads provide a powerful tool for writing composable and modular code in Java, and can help developers to write cleaner, more concise, and more maintainable code.
+
+
 @author: Sameer Shukla
 
    

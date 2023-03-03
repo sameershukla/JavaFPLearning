@@ -57,8 +57,8 @@ public class FunctionalCompositionExample {
             name ->
                     email ->
                             (cc, phoneNumber) -> new Customer(name,
-                                                    getEmail.apply(email),
-                                                    getPhone.apply(cc, phoneNumber));
+                                                        getEmail.apply(email),
+                                                        getPhone.apply(cc, phoneNumber));
 
 
     /**
