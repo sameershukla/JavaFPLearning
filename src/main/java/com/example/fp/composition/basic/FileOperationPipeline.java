@@ -1,4 +1,4 @@
-package com.example.fp.chaining.basic;
+package com.example.fp.composition.basic;
 
 import java.io.*;
 import java.util.function.Consumer;

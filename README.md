@@ -61,6 +61,9 @@ Functions take input, called arguments or parameters, and can return output valu
 
    ![img.png](function.png)
    
+   BiFunction can be perceive as
+
+   ![img.png](bifunc.png)
 
 # Lambda Expression
 

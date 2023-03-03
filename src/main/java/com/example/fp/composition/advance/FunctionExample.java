@@ -1,4 +1,4 @@
-package com.example.fp.chaining.advance;
+package com.example.fp.composition.advance;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

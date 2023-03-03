@@ -1,4 +1,4 @@
-package com.example.fp.chaining.advance;
+package com.example.fp.composition.advance;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
@@ -12,12 +12,12 @@ public class TestStringFunctionPipeline {
 
     @Test
     public void testLetterChain(){
-       assertEquals("HELLO WORLD", com.example.fp.chaining.basic.StringFunctionPipeline.letterChain("Hello World"));
+       assertEquals("HELLO WORLD", com.example.fp.composition.basic.StringFunctionPipeline.letterChain("Hello World"));
     }
 
     @Test
     public void testLetterSpecialCharacter(){
-        assertEquals("HELLO WORLD", com.example.fp.chaining.basic.StringFunctionPipeline.letterChain("Hello @#$@#$#@$#@$@#World"));
+        assertEquals("HELLO WORLD", com.example.fp.composition.basic.StringFunctionPipeline.letterChain("Hello @#$@#$#@$#@$@#World"));
     }
 
     @Test

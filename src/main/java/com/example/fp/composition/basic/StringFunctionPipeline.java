@@ -1,9 +1,4 @@
-package com.example.fp.chaining.basic;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+package com.example.fp.composition.basic;
 
 import java.util.function.Function;
 

@@ -1,4 +1,4 @@
-package com.example.fp.chaining.basic;
+package com.example.fp.composition.basic;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
