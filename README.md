@@ -114,6 +114,8 @@ Remember: apply returns a result
 
 **andThen Function:** The Function interface's "andThen" method takes a sequence of two functions and applies them in succession, using the output of the first function as the input to the second function. This chaining of the functions results in a new function that combines the behavior of both functions in a single transformation. Here's an example:
 
+![img.png](andThen.png)
+
     ```
       Function<Integer, Integer> addOne = x -> x + 1;
       Function<Integer, Integer> doubleIt = x -> x * 2;
@@ -123,7 +125,10 @@ Remember: apply returns a result
    
     ```
 
+
 **compose Function:** In contrast to the "andThen" method, the "compose" method applies the first function to the output of the second function. This means that the second function is applied to the input, and then the first function is applied to the output of the second function. This results in a chain of functions where the output of the second function becomes the input of the first function.. Here's an example:
+
+![img.png](compose.png)
 
        ```
          Function<Integer, Integer> addOne = x -> x + 1;
