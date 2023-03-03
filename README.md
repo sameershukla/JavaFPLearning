@@ -302,6 +302,30 @@ The essential feature of a monad is that it provides a way to chain computations
 For example, the Maybe monad in Haskell provides map and flatMap operations, but does not have a filter operation. The State monad in Haskell provides get and put operations for working with stateful computations, but does not have map, filter, or flatMap operations in the traditional sense.
 In general, a monad can have any number of operations that are tailored to its specific use case. The key is that the operations must satisfy the three monad laws: the identity law, the associativity law, and the compatibility law. As long as these laws are satisfied, the operations can be used to chain computations in a composable way, regardless of whether they are map, filter, flatMap, or some other set of operations.
 
+# How to create our own Monad 
+
+Writing your own monad can be a bit involved, but it's definitely possible. The steps involved in creating a monad are:
+
+Define the type that the monad will encapsulate. This can be any type of data, such as a list, a tree, a stream, or a result.
+
+Define the operations that the monad will provide. The most common operations are map, flatMap, and unit (or return). map applies a function to the value inside the monad and returns a new monad with the transformed value. flatMap applies a function that returns another monad to the value inside the monad and returns a flattened monad. unit (or return) creates a new monad with a given value.
+
+Implement the monad operations using the underlying data structure. The operations must satisfy the three monad laws: the identity law, the associativity law, and the compatibility law. These laws ensure that the operations can be used to chain computations in a composable way.
+
+# The 3 Monad law in detail
+
+**Identity law:** The unit operation must be an identity function for the flatMap operation. That is, m.flatMap(unit) is equivalent to m for any monad m.
+
+This means that when you apply the flatMap operation to a monad and pass in the unit operation, you should get the same monad back. In other words, the unit operation should not change the value of the monad.
+
+**Associativity law:** The flatMap operation must be associative. That is, m.flatMap(f).flatMap(g) is equivalent to m.flatMap(x -> f.apply(x).flatMap(g)) for any monad m and functions f and g.
+
+This means that when you apply the flatMap operation to a monad twice, with two different functions, the order in which you apply the functions should not matter. The result should be the same, regardless of whether you apply the first function first or the second function first.
+
+**Compatibility law:** The map operation must be compatible with the flatMap operation. That is, m.map(f) is equivalent to m.flatMap(x -> unit(f.apply(x))) for any monad m and function f.
+
+This means that when you apply the map operation to a monad, the result should be the same as if you apply the flatMap operation with a function that returns a new monad with the result of applying the function to the value inside the original monad.
+
 @author: Sameer Shukla
 
    
