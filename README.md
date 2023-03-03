@@ -183,7 +183,8 @@ By breaking down the function into a series of nested functions, each taking one
 # Higher Order Function 
 
   A higher-order function is a function that can take one or more functions as arguments, and/or return a function as its result. 
-  This allows for more flexible and reusable code, as functions can be passed around like any other value. We are familiar with 'map()', 'filter()' methods both of them take Function as arguments 
+  This allows for more flexible and reusable code, as functions can be passed around like any other value. 
+  We are familiar with 'map()', 'filter()' methods both of them take Function as arguments 
 
   They are an important and powerful concept in functional programming, providing several benefits, including:
    
@@ -296,6 +297,10 @@ There are several popular monads in Java, including Optional, Stream, and Comple
 In addition to these built-in monads, it's also possible to create custom monads in Java using libraries such as the Functional Java library or the Vavr library. These libraries provide abstractions for working with monads and other functional programming concepts in a more idiomatic and expressive way.
 Overall, monads provide a powerful tool for writing composable and modular code in Java, and can help developers to write cleaner, more concise, and more maintainable code.
 
+While the most commonly used monads in functional programming languages such as Haskell, Scala, and F# usually have the map, filter, and flatMap operations, it's not necessarily the case that all monads must have these operations. In fact, there are many different types of monads with different sets of operations.
+The essential feature of a monad is that it provides a way to chain computations in a composable way. The specific operations that a monad provides depend on the specific use case and the types of data that the monad is designed to work with.
+For example, the Maybe monad in Haskell provides map and flatMap operations, but does not have a filter operation. The State monad in Haskell provides get and put operations for working with stateful computations, but does not have map, filter, or flatMap operations in the traditional sense.
+In general, a monad can have any number of operations that are tailored to its specific use case. The key is that the operations must satisfy the three monad laws: the identity law, the associativity law, and the compatibility law. As long as these laws are satisfied, the operations can be used to chain computations in a composable way, regardless of whether they are map, filter, flatMap, or some other set of operations.
 
 @author: Sameer Shukla
 

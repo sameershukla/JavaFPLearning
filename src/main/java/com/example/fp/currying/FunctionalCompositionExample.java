@@ -3,6 +3,7 @@ package com.example.fp.currying;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
+
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -21,7 +22,7 @@ public class FunctionalCompositionExample {
     @Getter
     @AllArgsConstructor
     @ToString
-   static  class PhoneNumber {
+    static class PhoneNumber {
         private String cc;
         private String phone;
     }
@@ -46,7 +47,7 @@ public class FunctionalCompositionExample {
      * Suppose that we have an PhoneNumber service that returns an PhoneNumber object, and we want to use a function currying approach
      * to create a Customer class that stores a name, email, and phone number.
      */
-    public static BiFunction<String, String,  PhoneNumber> getPhone = (cc, number) -> new PhoneNumber(cc, number);
+    public static BiFunction<String, String, PhoneNumber> getPhone = (cc, number) -> new PhoneNumber(cc, number);
 
 
     /**
@@ -57,17 +58,17 @@ public class FunctionalCompositionExample {
             name ->
                     email ->
                             (cc, phoneNumber) -> new Customer(name,
-                                                        getEmail.apply(email),
-                                                        getPhone.apply(cc, phoneNumber));
+                                    getEmail.apply(email),
+                                    getPhone.apply(cc, phoneNumber));
 
 
     /**
-     * PAF example where Email Object is supplied with Customer Name
+     * PAF example where Email Object is supplied with Customer Name and Phone Number (Country Code and a Number)
      */
     public static Function<String, Function<Email, BiFunction<String, String, Customer>>> createCustomerWithEmail =
             name ->
                     email
-                        -> (cc, phoneNumber) ->  new Customer(name, email, getPhone.apply(cc, phoneNumber));
+                            -> (cc, phoneNumber) -> new Customer(name, email, getPhone.apply(cc, phoneNumber));
 
 
     /**
@@ -78,7 +79,7 @@ public class FunctionalCompositionExample {
     public static Function<String, Function<Email, Function<PhoneNumber, Customer>>> createCustomerWithEmailAndPhone =
             name ->
                     email
-                            -> phoneNumber ->   new Customer(name, email, phoneNumber);
+                            -> phoneNumber -> new Customer(name, email, phoneNumber);
 
 
 }

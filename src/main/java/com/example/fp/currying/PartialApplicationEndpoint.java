@@ -25,8 +25,8 @@ public class PartialApplicationEndpoint {
         private String email;
     }
 
-    class Repository{
-        public static List<User> save(List<User> user){
+    class Repository {
+        public static List<User> save(List<User> user) {
             return user;
         }
     }
@@ -46,10 +46,10 @@ public class PartialApplicationEndpoint {
      */
     private static Function<Unit, User> serviceThree = f -> new User("Mick", "Fitzpatrick", "mick@gmail.com");
 
-   private static Function<Unit, Function<Unit, Function<Unit, List<User>>>> getUsers =
-           one -> two -> three -> List.of(serviceOne.apply(one), serviceTwo.apply(one), serviceThree.apply(one));
+    private static Function<Unit, Function<Unit, Function<Unit, List<User>>>> getUsers =
+            one -> two -> three -> List.of(serviceOne.apply(one), serviceTwo.apply(one), serviceThree.apply(one));
 
-   public static List<User> createUser(){
+    public static List<User> createUser() {
         return Repository.save(getUsers.apply(Unit.unit()).apply(Unit.unit()).apply(Unit.unit()));
-   }
+    }
 }

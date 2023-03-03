@@ -4,6 +4,7 @@ import java.util.Objects;
 
 /**
  * Container for 2 params, Similar to Scala Tuple
+ *
  * @param <A>
  * @param <B>
  */
@@ -12,16 +13,16 @@ public class Tuple<A, B> {
     A first;
     B second;
 
-    public Tuple(A a, B b){
+    public Tuple(A a, B b) {
         this.first = a;
         this.second = b;
     }
 
-    public A _1(){
+    public A _1() {
         return first;
     }
 
-    public B _2(){
+    public B _2() {
         return second;
     }
 

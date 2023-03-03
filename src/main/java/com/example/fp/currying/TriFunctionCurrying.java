@@ -18,13 +18,13 @@ public class TriFunctionCurrying {
 
 
     public static void main(String[] args) {
-          Function<String, Function<String, Function<String, Tuple<String, String>>>>  pipeline = (f) -> (m -> (l -> new Tuple<String, String>(f, m + " " + l)));
-          Tuple<String, String> tuple = pipeline.apply("Java").apply("Programming234234#$@#$").apply("Language");
+        Function<String, Function<String, Function<String, Tuple<String, String>>>> pipeline = (f) -> (m -> (l -> new Tuple<String, String>(f, m + " " + l)));
+        Tuple<String, String> tuple = pipeline.apply("Java").apply("Programming234234#$@#$").apply("Language");
 
-          BiFunction<String, String, Tuple<String, String>> p = TriFunctionCurrying :: removeCharacters;
-          Tuple<String, String> result = p.andThen(x -> capitalize(x._1(), x._2())).andThen(x -> removeCharacters(x._1(), x._2()))
-                  .apply(tuple._1(), tuple._2());
-          System.out.println(result);
+        BiFunction<String, String, Tuple<String, String>> p = TriFunctionCurrying::removeCharacters;
+        Tuple<String, String> result = p.andThen(x -> capitalize(x._1(), x._2())).andThen(x -> removeCharacters(x._1(), x._2()))
+                .apply(tuple._1(), tuple._2());
+        System.out.println(result);
     }
 
 }

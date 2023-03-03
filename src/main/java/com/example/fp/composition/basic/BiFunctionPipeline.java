@@ -8,6 +8,7 @@ public class BiFunctionPipeline {
 
     /**
      * Function accepts 2 params and return Tuple
+     *
      * @param a
      * @param b
      * @return
@@ -18,6 +19,7 @@ public class BiFunctionPipeline {
 
     /**
      * Function accepts 2 params and remove special chars and create new Tuple
+     *
      * @param a
      * @param b
      * @return
@@ -28,6 +30,7 @@ public class BiFunctionPipeline {
 
     /**
      * Function capitalize both params and return a tuple
+     *
      * @param a
      * @param b
      * @return
@@ -39,8 +42,8 @@ public class BiFunctionPipeline {
     /**
      * Pipeline
      */
-    public static Tuple<String, String> letterChain(String input1, String input2){
-        if(input1 == null || input2 == null)
+    public static Tuple<String, String> letterChain(String input1, String input2) {
+        if (input1 == null || input2 == null)
             throw new IllegalArgumentException("Input cannot be null");
 
         BiFunction<String, String, Tuple<String, String>> pipeline = BiFunctionPipeline::addText;

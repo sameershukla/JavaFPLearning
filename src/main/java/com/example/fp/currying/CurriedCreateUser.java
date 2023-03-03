@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
 import java.util.function.Function;
 
 /**
@@ -29,12 +30,11 @@ public class CurriedCreateUser {
                             email -> new User(first, last, email);
 
 
-
     public static void main(String[] args) {
-         User user = createUser
-                         .apply("Brian")
-                         .apply("Lara")
-                         .apply("blara@gmail.com");
+        User user = createUser
+                .apply("Brian")
+                .apply("Lara")
+                .apply("blara@gmail.com");
         System.out.println(user);
     }
 }
