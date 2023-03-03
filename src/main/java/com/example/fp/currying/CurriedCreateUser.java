@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 import java.util.function.Function;
 
+/**
+ * This examples Demonstrates how to construct a Result Generically using Currying. A User class has 3 attributes firstName, lastName and email.
+ * And Using createUser curried function we create User Object.
+ */
 public class CurriedCreateUser {
 
     @Setter
@@ -20,10 +23,12 @@ public class CurriedCreateUser {
         private String email;
     }
 
-    public static Function<String, Function<String, Function<String, User>>> createUser =
+    private static Function<String, Function<String, Function<String, User>>> createUser =
             first ->
                     last ->
                             email -> new User(first, last, email);
+
+
 
     public static void main(String[] args) {
          User user = createUser

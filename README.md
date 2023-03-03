@@ -261,7 +261,20 @@ The example above includes the creation of two functions, "prefix" and "suffix",
    Several Java 8 functions, such as map in Optional or Stream, expect a Function as their argument. 
    If we have a BiFunction, we can curry it and pass it directly to these functions without the need for a wrapper function or lambda expression.
 
-   
+   Partial functions, on the other hand, are functions that are defined only for certain input values, and undefined for all other values. 
+   A partial function can be thought of as a function that takes a subset of the arguments of another function
+
+   Partial functions have several advantages:
+
+**Increased expressiveness:** Partial functions allow for more expressive code by allowing you to express functions that are not defined for all possible inputs. This can make your code more concise and easier to read.
+
+**Improved error handling:** When a function is defined for all possible inputs, it can be difficult to detect errors. With a partial function, you can explicitly specify when an input is not valid, which can make error handling more robust.
+
+**Better separation of concerns:** Partial functions can help you separate your code into smaller, more manageable pieces by allowing you to define functions that only operate on certain subsets of the input domain. This can make your code more modular and easier to maintain.
+
+**More efficient algorithms:** In some cases, a partial function can be computed more efficiently than a total function. For example, if you only need to compute a function for a subset of the input domain, you can avoid computing unnecessary values.
+
+**Improved type safety:** By using partial functions, you can make your code more type safe by explicitly defining the input and output types for each subset of the input domain. This can help prevent type errors and make your code more reliable.
 
 # Currying Use Cases
 

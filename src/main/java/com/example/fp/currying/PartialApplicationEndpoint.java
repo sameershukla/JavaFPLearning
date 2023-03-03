@@ -31,8 +31,19 @@ public class PartialApplicationEndpoint {
         }
     }
 
+    /**
+     * Function takes No Input and Return User as Unit is no value and returned Hard-coded User Object.
+     */
     private static Function<Unit, User> serviceOne = f -> new User("John", "Doe", "jdoe@gmail.com");
+
+    /**
+     * Function takes No Input and Return User as Unit is no value and returned Hard-coded User Object.
+     */
     private static Function<Unit, User> serviceTwo = f -> new User("David", "Priest", "dbp@gmail.com");
+
+    /**
+     * Function takes No Input and Return User as Unit is no value and returned Hard-coded User Object.
+     */
     private static Function<Unit, User> serviceThree = f -> new User("Mick", "Fitzpatrick", "mick@gmail.com");
 
    private static Function<Unit, Function<Unit, Function<Unit, List<User>>>> getUsers =
