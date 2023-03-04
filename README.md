@@ -184,7 +184,9 @@ By breaking down the function into a series of nested functions, each taking one
 
   A higher-order function is a function that can take one or more functions as arguments, and/or return a function as its result. 
   This allows for more flexible and reusable code, as functions can be passed around like any other value. 
-  We are familiar with 'map()', 'filter()' methods both of them take Function as arguments 
+  We are familiar with 'map()', 'filter()' methods both of them take Function and Predicate as arguments 
+
+![img.png](images/hof.png)
 
   They are an important and powerful concept in functional programming, providing several benefits, including:
    
