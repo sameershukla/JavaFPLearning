@@ -79,6 +79,22 @@ Functions take input, called arguments or parameters, and can return output valu
 
    During compilation, the lambda expression is translated into a class file that implements the functional interface. The class file contains a method that implements the lambda expression, as well as any captured variables and their values. When the lambda expression is executed, the JVM creates an instance of this class and invokes the method on that instance.
 
+# How Lambda Expressions handled by JVM 
+
+When a lambda expression is encountered in Java code, the JVM uses the invokedynamic instruction to create an instance of a functional interface that represents the lambda.
+
+Here's how the process works in more detail:
+
+1. The Java compiler generates an instance of a functional interface that corresponds to the lambda expression. For example, if the lambda expression is of the form x -> x * 2, the compiler generates an instance of the java.util.function.IntUnaryOperator interface.
+
+2. The invokedynamic instruction is used to create a CallSite object, which is responsible for the dynamic invocation of the lambda expression. The CallSite object is associated with the lambda expression and the functional interface instance generated in step 1.
+
+3. When the lambda expression is invoked, the JVM uses the CallSite object to dynamically bind the lambda expression to the appropriate method in the functional interface.
+
+4. The JVM then invokes the method on the functional interface instance using the appropriate arguments, and returns the result to the calling code.
+
+Overall, the use of invokedynamic and functional interfaces enables efficient implementation of lambda expressions in Java, allowing for concise and expressive code. The dynamic binding of the lambda expression to the appropriate method in the functional interface allows for greater flexibility in code composition and enables more powerful abstractions in Java programming.
+
 # Function Chaining
 
 In order to create a chain of functions, it is essential to first instantiate a Function or BiFunction object.
