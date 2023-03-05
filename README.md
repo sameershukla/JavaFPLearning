@@ -57,9 +57,9 @@ Here is the suggested order:
 
 **FunctionalCompositionExample**: Advance and practical example of Currying and PAF.
 
-### The "types" package includes classes like Tuples and Unit,
+### The "types" package contains types. 
 
-There are 2 Types covered in this Tuple and Unit. 
+There are 2 Types covered Tuple and Unit. 
 
 **Tuple**: In functional programming, a tuple is an ordered collection of elements of different types.
 
