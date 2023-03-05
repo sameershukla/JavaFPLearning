@@ -1,4 +1,4 @@
-package com.example.fp.problems.fileio;
+package com.example.fp.problems.restclient;
 
 import com.example.fp.basics.types.Tuple;
 import com.example.fp.basics.types.Unit;
@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.util.Scanner;
 import java.util.function.Function;
 
-public class FunctionalRestClient {
+public class FunctionalRestClientPipeline {
 
     @Getter
     class Response{
@@ -59,8 +59,8 @@ public class FunctionalRestClient {
         }
         String url = "https://www.disify.com/api/email/" + email;
         createRequest
-                .andThen(FunctionalRestClient :: executeRequest)
-                .andThen(FunctionalRestClient :: executeResponse)
+                .andThen(FunctionalRestClientPipeline:: executeRequest)
+                .andThen(FunctionalRestClientPipeline:: executeResponse)
                 .apply(url);
     }
 

@@ -1,4 +1,4 @@
-package com.example.fp.problems.fileio;
+package com.example.fp.problems.jdbc;
 
 import com.example.fp.basics.types.Tuple;
 import com.example.fp.basics.types.Unit;
