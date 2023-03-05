@@ -100,7 +100,7 @@ Functions take input, called arguments or parameters, and can return output valu
 
    During compilation, the lambda expression is translated into a class file that implements the functional interface. The class file contains a method that implements the lambda expression, as well as any captured variables and their values. When the lambda expression is executed, the JVM creates an instance of this class and invokes the method on that instance.
 
-# How Lambda Expressions handled by JVM 
+# How Lambda Expressions handled by JVM  
 
 When a lambda expression is encountered in Java code, the JVM uses the invokedynamic instruction to create an instance of a functional interface that represents the lambda.
 
