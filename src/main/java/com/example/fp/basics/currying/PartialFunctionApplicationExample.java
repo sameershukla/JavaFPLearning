@@ -10,7 +10,7 @@ import java.util.function.Function;
 /**
  * The Function Curring and Partial Function example. Customer is created with Email and PhoneNumber.
  */
-public class FunctionalCompositionExample {
+public class PartialFunctionApplicationExample {
 
     @Getter
     @AllArgsConstructor

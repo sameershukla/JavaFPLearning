@@ -3,11 +3,11 @@ package com.example.fp.basics.currying;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestFunctionCompositionExample {
+public class TestPartialFunctionApplicationExample {
 
     @Test
     public void testCreateCustomer(){
-        FunctionalCompositionExample.Customer customer = FunctionalCompositionExample.createCustomer
+        PartialFunctionApplicationExample.Customer customer = PartialFunctionApplicationExample.createCustomer
                                                                     .apply("sameer")
                                                                     .apply("sameer.shukla@gmail.com")
                                                                     .apply("1", "29292");
@@ -16,8 +16,8 @@ public class TestFunctionCompositionExample {
 
     @Test
     public void testCreateCustomerWithEmail(){
-        FunctionalCompositionExample.Email email = FunctionalCompositionExample.getEmail.apply("sameer.shukla@gmail.com");
-        FunctionalCompositionExample.Customer customer = FunctionalCompositionExample.createCustomerWithEmail
+        PartialFunctionApplicationExample.Email email = PartialFunctionApplicationExample.getEmail.apply("sameer.shukla@gmail.com");
+        PartialFunctionApplicationExample.Customer customer = PartialFunctionApplicationExample.createCustomerWithEmail
                 .apply("sameer")
                 .apply(email)
                 .apply("1", "22222");
@@ -26,9 +26,9 @@ public class TestFunctionCompositionExample {
 
     @Test
     public void testCreateCustomerWithEmailAndPhone(){
-        FunctionalCompositionExample.Email email = FunctionalCompositionExample.getEmail.apply("sameer.shukla@gmail.com");
-        FunctionalCompositionExample.PhoneNumber phoneNumber = FunctionalCompositionExample.getPhone.apply("1", "123");
-        FunctionalCompositionExample.Customer customer = FunctionalCompositionExample.createCustomerWithEmailAndPhone
+        PartialFunctionApplicationExample.Email email = PartialFunctionApplicationExample.getEmail.apply("sameer.shukla@gmail.com");
+        PartialFunctionApplicationExample.PhoneNumber phoneNumber = PartialFunctionApplicationExample.getPhone.apply("1", "123");
+        PartialFunctionApplicationExample.Customer customer = PartialFunctionApplicationExample.createCustomerWithEmailAndPhone
                 .apply("sameer")
                 .apply(email)
                         .apply(phoneNumber);
