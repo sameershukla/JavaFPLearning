@@ -37,13 +37,34 @@ Here is the suggested order for learning these examples:
 
 **FunctionCompositionExample**: Understanding the difference between 'compose' and 'andThen' functions.
 
-###  Additional information:
+### The "functional.hof" package contains Higher Order Function examples, which are functions that either take other functions as arguments or return functions as results.
+Here is the suggested order for learning these examples:
+
+**StringComparatorHof**: Example demonstrates passing Comparator Function to a Function and Compares Strings. 
+
+### The "currying" package is dedicated to showcasing Function Currying and Partial Applied Functions (PAF)
 
 The "functional.currying" package provides examples of Currying, which is a technique for transforming a function that takes multiple arguments into a sequence of functions that each take a single argument.
+Here is the suggested order:
 
-The "functional.hof" package contains Higher Order Function examples, which are functions that either take other functions as arguments or return functions as results.
+**CurriedCreateUser**: Showcases simple example of Function Currying
 
-The "types" package includes classes like Tuples and Unit, with the Tuple class being a convenient way to group together related data of different types into a fixed-length structure.
+**CurriedEmailComposer**: Showcases Composing EmailId using Currying
+
+**TriFunctionCurrying**: Slightly advance example of Currying.
+
+**PartialApplicationEndpoint**: Demonstrates example of Partial Applied Function (PAF)
+
+**FunctionalCompositionExample**: Advance and practical example of Currying and PAF.
+
+### The "types" package includes classes like Tuples and Unit,
+
+There are 2 Types covered in this Tuple and Unit. 
+
+**Tuple**: In functional programming, a tuple is an ordered collection of elements of different types.
+
+**Unit**: Unit is a class that represents the absence of a value. It is used to indicate that a function returns no useful value, similar to the void type.
+
 
 # What are Functions 
 
