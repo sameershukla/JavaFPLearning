@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestStringFunctionPipeline {
@@ -13,20 +15,17 @@ public class TestStringFunctionPipeline {
 
     @Test
     public void testLetterChain(){
-       Assertions.assertEquals("HELLO WORLD", com.example.fp.basics.composition.basic.StringFunctionPipeline.letterChain("Hello World"));
+       Assertions.assertEquals("HELLO WORLD", StringFunctionPipeline.letterChain("Hello World").get());
     }
 
     @Test
     public void testLetterSpecialCharacter(){
-        Assertions.assertEquals("HELLO WORLD", com.example.fp.basics.composition.basic.StringFunctionPipeline.letterChain("Hello @#$@#$#@$#@$@#World"));
+        Assertions.assertEquals("HELLO WORLD", StringFunctionPipeline.letterChain("Hello @#$@#$#@$#@$@#World").get());
     }
 
     @Test
     public void testLetterNull(){
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            StringFunctionPipeline.letterChain(null);
-        });
-        assertTrue(exception.getMessage().contains("Input cannot be null"));
+        assertEquals(Optional.empty(), StringFunctionPipeline.letterChain(null));
     }
 
 

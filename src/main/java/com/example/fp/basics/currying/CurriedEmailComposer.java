@@ -1,5 +1,6 @@
 package com.example.fp.basics.currying;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 public class CurriedEmailComposer {
@@ -12,12 +13,12 @@ public class CurriedEmailComposer {
         return composeEmail().apply(username);
     }
 
-    public static String email(String username, String domain) {
+    public static Optional<String> email(String username, String domain) {
         if (username == null || domain == null) {
-            throw new IllegalArgumentException("Input cannot be null");
+            return Optional.empty();
         }
-        return composeEmailForExample(username)
-                .apply(domain);
+        return Optional.of(composeEmailForExample(username)
+                .apply(domain));
     }
 
 }

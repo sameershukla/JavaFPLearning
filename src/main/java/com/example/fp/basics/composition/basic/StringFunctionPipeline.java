@@ -1,5 +1,6 @@
 package com.example.fp.basics.composition.basic;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 public class StringFunctionPipeline {
@@ -16,14 +17,14 @@ public class StringFunctionPipeline {
         return text.toUpperCase();
     }
 
-    public static String letterChain(String input){
+    public static Optional<String> letterChain(String input){
         if(input == null)
-            throw new IllegalArgumentException("Input cannot be null");
+            return Optional.empty();
 
         Function<String, String> pipeline = StringFunctionPipeline:: addText;
-        return pipeline
-                .andThen(StringFunctionPipeline:: removeSpecialCharacters)
-                .andThen(StringFunctionPipeline:: capitalize)
-                .apply(input);
+        return Optional.of(pipeline
+                            .andThen(StringFunctionPipeline:: removeSpecialCharacters)
+                            .andThen(StringFunctionPipeline:: capitalize)
+                            .apply(input));
     }
 }
