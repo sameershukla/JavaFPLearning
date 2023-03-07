@@ -14,8 +14,6 @@ public class TriFunctionPipeline {
     private static Tuple<String, String> concatenate(String first, String middle, String last){
         return new Tuple<>(first, " "+ middle + " " + last);
     }
-
-
     /**
      * Capitalization
      * @param first
@@ -27,8 +25,6 @@ public class TriFunctionPipeline {
         String lastName = middle.toUpperCase() + " " + last.toUpperCase();
         return new Tuple<>(first.toUpperCase(), " "+ lastName);
     }
-
-
     /**
      * Letter Chaining
      * @param

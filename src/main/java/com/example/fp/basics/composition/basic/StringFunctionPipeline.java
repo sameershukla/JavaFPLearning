@@ -28,3 +28,4 @@ public class StringFunctionPipeline {
                             .apply(input));
     }
 }
+

@@ -52,7 +52,8 @@ Here is the suggested order for learning these examples:
 ### The "basics.hof" package contains Higher Order Function examples, which are functions that either take other functions as arguments or return functions as results.
 Here is the suggested order for learning these examples:
 
-**StringComparatorHof**: Example demonstrates passing Comparator Function to a Function and Compares Strings. 
+**StringComparatorHof**: Example demonstrates passing Comparator Function to a Function and Compares Strings.
+**ConsoleFormatterHof**: Example demonstrates a function that takes 2 functions as params. 
 
 ### The "currying" package is dedicated to showcasing Function Currying and Partial Applied Functions (PAF)
 

@@ -29,11 +29,14 @@ public class FunctionCompositionExample {
 
     /**
      * Compose Example, first multiply is executed and output of multiply passed to add and then to logOutput.
+     *
      * @param input
      * @return
      */
-    public static Unit compose(Integer input){
-        Function<Integer, Unit> pipeline = logOutput.compose(add).compose(multiply);
+    public static Unit compose(Integer input) {
+        Function<Integer, Unit> pipeline = logOutput
+                .compose(add)
+                .compose(multiply);
         return pipeline.apply(input);
     }
 
@@ -43,7 +46,9 @@ public class FunctionCompositionExample {
      * @return
      */
     public static Unit chain(Integer input){
-        Function<Integer, Unit> pipeline = multiply.andThen(add).andThen(logOutput);
+        Function<Integer, Unit> pipeline = multiply
+                                            .andThen(add)
+                                            .andThen(logOutput);
         return pipeline.apply(input);
     }
 }

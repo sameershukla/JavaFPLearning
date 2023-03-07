@@ -22,3 +22,4 @@ public class StringComparatorHof {
         return (output == 0) ? Optional.of("Equal Strings") : Optional.of("UnEqual Strings");
     }
 }
+

@@ -7,7 +7,6 @@ import java.util.Scanner;
 import java.util.function.Function;
 
 public class FunctionalFileReaderPipeline {
-
     private static Function<String, BufferedReader> createBufferedReader = (filename) -> {
         try {
                 return new BufferedReader(new FileReader(filename));
@@ -15,9 +14,8 @@ public class FunctionalFileReaderPipeline {
                 throw new IllegalArgumentException("File not found: " + filename, ex);
             }
      };
-
     private static Tuple<BufferedReader, String> readLines(BufferedReader br) {
-            try {
+        try {
                 StringBuilder sb = new StringBuilder();
                 String line;
                 while ((line = br.readLine()) != null) {
@@ -29,12 +27,10 @@ public class FunctionalFileReaderPipeline {
                 throw new UncheckedIOException("Error reading from BufferedReader", ex);
             }
     };
-
-    private static Tuple<BufferedReader, Unit> printLines(Tuple<BufferedReader, String> line) {
+   private static Tuple<BufferedReader, Unit> printLines(Tuple<BufferedReader, String> line) {
         System.out.println(line._2());
         return new Tuple<>(line._1(), Unit.unit());
     }
-
     private static Unit closeBufferedReader(Tuple<BufferedReader, Unit> tuple){
         try {
             tuple._1().close();
@@ -43,7 +39,6 @@ public class FunctionalFileReaderPipeline {
         }
         return tuple._2();
     }
-
     public static void processFileData(){
         Scanner scanner = new Scanner(System.in);
         String filename = scanner.nextLine();
@@ -56,7 +51,6 @@ public class FunctionalFileReaderPipeline {
                 .andThen(FunctionalFileReaderPipeline:: closeBufferedReader)
                 .apply(filename);
     }
-
     public static void main(String[] args) {
         processFileData();
     }
