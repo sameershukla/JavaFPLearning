@@ -11,15 +11,21 @@ Additionally, you will explore Function Currying, Partial Functions, and Monads.
 
 # What you'll learn and how the code is structured. 
 
-The repository contains examples that demonstrate the principles of writing elegant functional code. 
+The repository contains examples that demonstrate the principles of writing elegant functional code. The repo so far has 2 packages "basic" and "problems". One should start exploring from the "basic" package that 
+has several sub-packages covering each FP concept one should start learning in this order 
 
-###  The "chaining.basic" and "chaining.advance" packages in Java for Function Chaining
+basics 
+   -- composition
+            -- basic
+            -- advance 
+   -- hof
+   -- currying 
 
-The "chaining.basic" package provides a comprehensive guide for chaining regular functions, covering examples for String manipulation, file reading, and handling functions with multiple parameters. Here is the suggested order for learning these examples:
+###  The "composition.basic" and "composition.advance" packages in Java for Function Chaining
+
+The "composition.basic" package provides a comprehensive guide for chaining regular functions, covering examples for String manipulation, file reading, and handling functions with multiple parameters. Here is the suggested order for learning these examples:
 
 **StringFunctionPipeline**: Creating a pipeline of functions to manipulate strings.
-
-**FileOperationPipeline**: Breaking down a file reading code into a sequence of functions that are later chained together.
 
 **BiFunctionPipeline**: Chaining BiFunctions and returning Tuples, utilizing the Tuple class.
 
@@ -27,7 +33,7 @@ The "chaining.basic" package provides a comprehensive guide for chaining regular
 
 **UserManagementService**: Demonstrating function chaining in a Spring Boot application.
 
-### The "chaining.advance" package is dedicated to showcasing how to chain objects of the java.util.function.Function interface. 
+### The "composition.advance" package is dedicated to showcasing how to chain objects of the java.util.function.Function interface. 
 
 Here is the suggested order for learning these examples:
 
@@ -37,7 +43,7 @@ Here is the suggested order for learning these examples:
 
 **FunctionCompositionExample**: Understanding the difference between 'compose' and 'andThen' functions.
 
-### The "functional.hof" package contains Higher Order Function examples, which are functions that either take other functions as arguments or return functions as results.
+### The "basics.hof" package contains Higher Order Function examples, which are functions that either take other functions as arguments or return functions as results.
 Here is the suggested order for learning these examples:
 
 **StringComparatorHof**: Example demonstrates passing Comparator Function to a Function and Compares Strings. 
@@ -55,7 +61,7 @@ Here is the suggested order:
 
 **PartialApplicationEndpoint**: Demonstrates example of Partial Applied Function (PAF)
 
-**FunctionalCompositionExample**: Advance and practical example of Currying and PAF.
+**PartialFunctionApplicationExample**: MOST IMPORTANT EXAMPLE OF CURRYING AND PAF.
 
 ### The "types" package contains types. 
 
@@ -65,6 +71,7 @@ There are 2 Types covered Tuple and Unit.
 
 **Unit**: Unit is a class that represents the absence of a value. It is used to indicate that a function returns no useful value, similar to the void type.
 
+### The utils package is work in progress that is a collection of some user-defined utils method. Very USEFUL by the way. 
 
 # What are Functions 
 
