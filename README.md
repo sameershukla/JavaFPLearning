@@ -14,12 +14,18 @@ Additionally, you will explore Function Currying, Partial Functions, and Monads.
 The repository contains examples that demonstrate the principles of writing elegant functional code. The repo so far has 2 packages "basic" and "problems". One should start exploring from the "basic" package that 
 has several sub-packages covering each FP concept one should start learning in this order 
 
-basics 
-   -- composition
-            -- basic
-            -- advance 
-   -- hof
-   -- currying 
+###  basics
+  - Composition
+        - basic
+        - advance 
+  - hof
+  - currying
+  - types
+  - utils
+
+### problems
+
+This package contains Pipeline examples, which should be looked into once basics are in place, this WIP (Work In Progress, more and more examples will be added going forward)
 
 ###  The "composition.basic" and "composition.advance" packages in Java for Function Chaining
 
