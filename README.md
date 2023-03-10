@@ -290,6 +290,8 @@ The example above includes the creation of two functions, "prefix" and "suffix",
 
 # Currying and Partial Functions
 
+   https://www.c-sharpcorner.com/article/exploring-the-benefits-of-function-currying-in-java-understanding-the-concept/ 
+
    Function currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take a single argument.
    In other words, it transforms a function that takes multiple arguments into a chain of functions that each take a single argument and return a new function until all the original arguments are consumed.
    Java's Function interface supports currying through the use of the "andThen" and "compose" methods. These methods enable the creation of a sequence of functions where the output of one function is used as the input of another function. By chaining functions together in this way, it is possible to create a pipeline of transformations that can be applied to data in a flexible and modular way.
