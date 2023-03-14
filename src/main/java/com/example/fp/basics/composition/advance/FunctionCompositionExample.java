@@ -35,8 +35,8 @@ public class FunctionCompositionExample {
      */
     public static Unit compose(Integer input) {
         Function<Integer, Unit> pipeline = logOutput
-                .compose(add)
-                .compose(multiply);
+                                            .compose(add)
+                                            .compose(multiply);
         return pipeline.apply(input);
     }
 
