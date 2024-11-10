@@ -11,74 +11,29 @@ Additionally, you will explore Function Currying, Partial Functions, and Monads.
 
 # What you'll learn and how the code is structured. 
 
-The repository contains examples that demonstrate the principles of writing elegant functional code. The repo so far has 2 packages "basic" and "problems". One should start exploring from the "basic" package that 
-has several sub-packages covering each FP concept one should start learning in this order 
+The repository contains examples that demonstrate the principles of writing elegant functional code. 
 
-###  basics
-  - Composition
-        - basic
-        - advance 
-  - hof
-  - currying
-  - types
-  - utils
+**FunctionCompositionDemo**: This class demonstrates function composition in Java by chaining mathematical operations and logging the result. It showcases two methods, compose and chain, to illustrate different execution orders in a function pipeline using compose (right-to-left execution) and andThen (left-to-right execution)..
 
-### problems
+**StringTransformationPipelineDemo**: This class demonstrates a string transformation pipeline in Java that performs a series of operations on an input string. The pipeline includes functions to trim whitespace, remove special characters, and convert the string to uppercase, all composed using andThen for sequential processing. The transform method wraps these transformations, returning an Optional to handle null or empty inputs gracefully.
 
-This package contains Pipeline examples, which should be looked into once basics are in place, this WIP (Work In Progress, more and more examples will be added going forward)
+**BiFunctionPipelineDemo**: This class demonstrates a BiFunction-based transformation pipeline for processing two string inputs. The letterChain method applies a series of transformations—trimming whitespace, removing special characters, and converting to uppercase—returning a Tuple with the final processed results. This pipeline showcases BiFunction chaining with andThen to build a sequential transformation flow.
 
-###  The "composition.basic" and "composition.advance" packages in Java for Function Chaining
+**FunctionalFileReaderPipeline**: This class demonstrates a functional pipeline for file I/O in Java, using function composition to open, read, print, and close a file. Each function in the pipeline is modular and composed sequentially, showcasing the power of functional programming for structured resource management.
 
-The "composition.basic" package provides a comprehensive guide for chaining regular functions, covering examples for String manipulation, file reading, and handling functions with multiple parameters. Here is the suggested order for learning these examples:
+**HigherOrderFunctionDemo**: This class demonstrates higher-order functions in Java by using a generic process method that takes a Predicate to count letters, digits, or special characters in a string. It highlights the flexibility of passing behavior as parameters, making it adaptable for various counting operations.
 
-**StringFunctionPipeline**: Creating a pipeline of functions to manipulate strings.
+**TriFunctionPipelineDemo**: This class demonstrates a TriFunction-based transformation pipeline for processing three string inputs, illustrating the limitations of standard functional interfaces with multiple arguments. The letterChain method applies a series of transformations—concatenating the inputs and then capitalizing them—returning a Tuple with the transformed result. This pipeline showcases the use of a custom TriFunction interface and chaining with andThen, highlighting why currying is often needed to handle functions with flexible, sequential parameter application..
 
-**BiFunctionPipeline**: Chaining BiFunctions and returning Tuples, utilizing the Tuple class.
+**FunctionCurryingDemo**: This class demonstrates currying and partial application in Java, showcasing how multi-parameter functions can be broken down into a series of single-parameter functions for flexibility. By applying parameters one at a time, it highlights the limitations of BiFunction and TriFunction and shows how currying enables reusable function chains.
 
-**TriFunctionPipeline**: Handling functions with three parameters using TriFunction.
-
-**UserManagementService**: Demonstrating function chaining in a Spring Boot application.
-
-### The "composition.advance" package is dedicated to showcasing how to chain objects of the java.util.function.Function interface. 
-
-Here is the suggested order for learning these examples:
-
-**FunctionExample**: Demonstrating Function as First-class citizens in Java.
-
-**StringFunctionPipeline**: Creating a pipeline of Functions to manipulate strings.
-
-**FunctionCompositionExample**: Understanding the difference between 'compose' and 'andThen' functions.
-
-### The "basics.hof" package contains Higher Order Function examples, which are functions that either take other functions as arguments or return functions as results.
-Here is the suggested order for learning these examples:
-
-**StringComparatorHof**: Example demonstrates passing Comparator Function to a Function and Compares Strings.
-**ConsoleFormatterHof**: Example demonstrates a function that takes 2 functions as params. 
-
-### The "currying" package is dedicated to showcasing Function Currying and Partial Applied Functions (PAF)
-
-The "functional.currying" package provides examples of Currying, which is a technique for transforming a function that takes multiple arguments into a sequence of functions that each take a single argument.
-Here is the suggested order:
-
-**CurriedCreateUser**: Showcases simple example of Function Currying
-
-**CurriedEmailComposer**: Showcases Composing EmailId using Currying
-
-**TriFunctionCurrying**: Slightly advance example of Currying.
-
-**PartialApplicationEndpoint**: Demonstrates example of Partial Applied Function (PAF)
-
-**PartialFunctionApplicationExample**: MOST IMPORTANT EXAMPLE OF CURRYING AND PAF.
+**PartialFunctionDemo**: This class demonstrates function currying and partial application of functions (PAF) by creating Customer objects in Java. It provides flexible functions to progressively set Customer parameters like name, email, and phone number, showcasing how currying and partial application allow for step-by-step function application and object creation.
 
 ### The "types" package contains types. 
-
-There are 2 Types covered Tuple and Unit. 
 
 **Tuple**: In functional programming, a tuple is an ordered collection of elements of different types.
 
 **Unit**: Unit is a class that represents the absence of a value. It is used to indicate that a function returns no useful value, similar to the void type.
-
-### The utils package is work in progress that is a collection of some user-defined utils method. Very USEFUL by the way. 
 
 # What are Functions 
 
